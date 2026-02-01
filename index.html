@@ -247,7 +247,7 @@
     }
   });
 
-  // mcstatus.io live server check (without version)
+  // mcstatus.io live server check (real-time every 5 seconds)
   async function checkServer() {
     const statusEl = document.getElementById('server-status');
     const playersEl = document.getElementById('server-players');
@@ -270,8 +270,9 @@
     }
   }
 
+  // Start checking immediately and repeat every 5 seconds
   checkServer();
-  setInterval(checkServer, 10000); // refresh every minute
+  setInterval(checkServer, 5000);
 </script>
 
 </body>
