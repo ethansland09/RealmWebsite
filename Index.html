@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realm SMP</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #2b2b44, #0f0f1a 60%);
+      color: #eaeaf0;
+      line-height: 1.6;
+    }
+    header {
+      padding: 96px 24px 72px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin: 0 0 12px;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #cfd0ff;
+      font-size: 1.1rem;
+    }
+    .badge-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #5a5cff, #7a7cff);
+      color: #0b0b1a;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+    .card p { color: #d6d7ff; }
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+    .list li {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.15);
+    }
+    .list li:last-child { border-bottom: none; }
+    footer {
+      text-align: center;
+      padding: 40px 20px 56px;
+      color: #b9bbff;
+      font-size: 0.9rem;
+    }
+    .accent {
+      background: linear-gradient(135deg, #7a7cff, #9aa0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><span class="accent">Realm SMP</span></h1>
+    <p>
+      A Minecraft survival multiplayer experience set on a fully custom world.
+      Hand-crafted terrain, unique builds, and long-term progression shaped by the community.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Custom Map</div>
+      <div class="badge">Axiom Built</div>
+      <div class="badge">Community Driven</div>
+      <div class="badge">Survival SMP</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>About the Server</h3>
+        <p>
+          Realm SMP is built from the ground up using Axiom, resulting in a world that feels
+          intentional, immersive, and alive. Every mountain, valley, and structure exists
+          for exploration, storytelling, and survival.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Co-Owners</h3>
+        <ul class="list">
+          <li>ethanmeister14</li>
+          <li>GDarkz</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Development Team</h3>
+        <ul class="list">
+          <li>ethanmeister14</li>
+          <li>GDarkz</li>
+          <li>BigtimeSmall</li>
+          <li>Mr Bubble</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What Makes Realm SMP Different</h3>
+        <p>
+          This is not a generated seed with a few tweaks. Realm SMP focuses on custom geography,
+          balanced survival, and organic player stories that grow over time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Realm SMP © 2026 · Built by the Realm SMP Development Team
+    </p>
+  </footer>
+
+</body>
+</html>
