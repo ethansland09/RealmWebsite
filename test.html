@@ -1,234 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Realm SMP</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realm SMP - Discord Application</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(rgba(11,13,18,0.85), rgba(11,13,18,0.85)),
-              url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=69801587&is=697ec407&hm=9e69da194193ccb54c6712ddd4832b3b2a74fbe91282d15b7859f18504b3b2e9&") center/cover no-repeat fixed;
-  color: #eef0ff;
+  font-family: 'Inter', system-ui, sans-serif;
+  background:#111420;
+  color:#eef0ff;
+  padding:20px;
 }
-a { color: inherit; text-decoration: none; }
-nav { position: sticky; top: 0; z-index: 10; background: rgba(11,13,18,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
-.nav-title { font-weight: 800; letter-spacing: 0.3px; }
-.nav-links { display: flex; gap: 20px; font-weight: 500; color: #cfd3ff; }
-header { max-width: 1200px; margin: 0 auto; padding: 120px 24px 80px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
-header h1 { font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.05; margin-bottom: 16px; }
-header p { font-size: 1.15rem; color: #cfd3ff; max-width: 560px; }
-.hero-box { background: linear-gradient(180deg, rgba(122,124,255,0.18), rgba(122,124,255,0.04)); border: 1px solid rgba(122,124,255,0.35); border-radius: 24px; padding: 32px; }
-.hero-box strong { color: #9aa0ff; }
-section { max-width: 1200px; margin: 0 auto; padding: 96px 24px; }
-section h2 { font-size: 2.2rem; margin-bottom: 16px; }
-section p { color: #cfd3ff; max-width: 760px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 40px; }
-.card { background: #111420; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; text-align: center; }
-.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-top: 48px; }
-.member { text-align: center; }
-.member img { width: 96px; height: 96px; border-radius: 16px; image-rendering: pixelated; background: #000; margin-bottom: 12px; }
-.member strong { display: block; }
-.role { color: #9aa0ff; font-size: 0.9rem; }
-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 48px 24px; text-align: center; color: #b8bdff; }
-input, textarea, button { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
-.suggestion-card { max-width: 700px; margin-top: 32px; background: linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02)); border: 1px solid rgba(122,124,255,0.35); border-radius: 24px; padding: 32px; }
-input, textarea { width: 100%; padding: 16px; margin-bottom: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: #0b0d12; color: #eef0ff; font-size: 1rem; resize: vertical; transition: border 0.2s, box-shadow 0.2s; }
-input:focus, textarea:focus { outline: none; border-color: #7a7cff; box-shadow: 0 0 8px rgba(122,124,255,0.4); }
-button { padding: 14px 24px; border-radius: 16px; border: none; background: #7a7cff; color: #0b0d12; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.2s, transform 0.1s; }
-button:hover { background: #6569ff; transform: translateY(-1px); }
-button:active { transform: translateY(0); }
-@media (max-width: 900px) { header { grid-template-columns: 1fr; padding-top: 96px; } }
+h1,h2 { margin-bottom:12px; }
+input, textarea, button {
+  display:block;
+  width:100%;
+  margin:8px 0;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  font-size:1rem;
+}
+button { background:#7a7cff; color:#0b0d12; font-weight:700; cursor:pointer; }
+button:hover { background:#6569ff; }
+form { margin-bottom:30px; }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <div class="nav-title">Realm SMP</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#server">Server</a>
-      <a href="#team">Team</a>
-      <a href="#discord-applications">Discord Applications</a>
-      <a href="#suggestions">Suggestions</a>
-    </div>
-  </div>
-</nav>
+<h1>Discord Application</h1>
+<form id="appForm">
+  <input type="text" id="appUsername" placeholder="Minecraft username (optional)">
+  <textarea id="appMessage" placeholder="Why should you be approved?" rows="4"></textarea>
+  <button type="submit">Submit Application</button>
+</form>
 
-<header>
-  <div>
-    <h1>Realm SMP<br>Built to Last</h1>
-    <p>Realm SMP is a survival multiplayer server set on a fully handcrafted world made with Axiom. Exploration, progression, and player stories come first.</p>
-  </div>
-  <div class="hero-box">
-    <p><strong>World:</strong> Fully custom Axiom map</p>
-    <p><strong>Style:</strong> Long-term survival SMP</p>
-    <p><strong>Focus:</strong> Community-driven gameplay</p>
-  </div>
-</header>
-
-<section id="about">
-  <h2>About Realm SMP</h2>
-  <p>Realm SMP emphasizes clean design, stability, and a world that feels intentionally built rather than randomly generated.</p>
-</section>
-
-<section id="features">
-  <h2>What Makes It Different</h2>
-  <div class="grid">
-    <div class="card"><h3>Custom Terrain</h3><p>Every biome, structure, and landscape was shaped by hand using Axiom.</p></div>
-    <div class="card"><h3>Balanced Survival</h3><p>Vanilla-style gameplay with careful tuning for long-term worlds.</p></div>
-    <div class="card"><h3>Community First</h3><p>Player builds, stories, and events define the server’s history.</p></div>
-    <div class="card"><h3>Bedrock and Java Crossplay</h3><p>Players on both Bedrock and Java Editions can join together seamlessly.</p></div>
-  </div>
-</section>
-
-<section id="server">
-  <h2>Server Status</h2>
-  <div class="card">
-    <p>Status: <span id="server-status">Loading...</span></p>
-    <p>Players: <span id="server-players">-</span></p>
-  </div>
-</section>
-
-<section id="team">
-  <h2>The Team</h2>
-  <div class="team-grid">
-    <div class="member">
-      <a href="https://namemc.com/profile/ethanmeister14" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin"></a>
-      <strong>ethanmeister14</strong>
-      <span class="role">Co-Owner & Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/GDarkz" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=4" alt="GDarkz skin"></a>
-      <strong>GDarkz</strong>
-      <span class="role">Co-Owner & Head Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin"></a>
-      <strong>BigtimeSmall</strong>
-      <span class="role">Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/MrBubble321" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin"></a>
-      <strong>MrBubble321</strong>
-      <span class="role">Developer</span>
-    </div>
-  </div>
-</section>
-
-<section id="discord-applications">
-  <h2>Discord Applications</h2>
-  <p>Want to join the Realm SMP Discord team? Submit your application below. Approved applicants will get a special invite link.</p>
-
-  <div class="card suggestion-card">
-    <form id="discordAppForm">
-      <input type="text" id="appUsername" placeholder="Your Minecraft username (optional)">
-      <textarea id="appMessage" placeholder="Why should you be approved?" rows="5"></textarea>
-      <button type="submit">Submit Application</button>
-    </form>
-  </div>
-</section>
-
-<section id="suggestions">
-  <h2>Suggestions</h2>
-  <p>Have an idea to improve Realm SMP? Share your suggestions with the team. Community feedback helps shape the future of the server.</p>
-
-  <div class="card suggestion-card">
-    <form id="suggestionForm">
-      <input type="text" id="suggestUsername" placeholder="Your Minecraft username (optional)">
-      <textarea id="suggestMessage" placeholder="Your suggestion..." rows="5"></textarea>
-      <button type="submit">Submit Suggestion</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <p>Realm SMP © 2026 · Built by the Realm SMP Development Team</p>
-</footer>
+<h2>Suggestions</h2>
+<form id="suggestForm">
+  <input type="text" id="sugUsername" placeholder="Minecraft username (optional)">
+  <textarea id="sugMessage" placeholder="Your suggestion..." rows="4"></textarea>
+  <button type="submit">Submit Suggestion</button>
+</form>
 
 <script>
-const DISCORD_LINK = "https://discord.gg/YOURINVITE"; // replace with your Discord
+// ===== CONFIG =====
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/ethan.sloss09@gmail.com"; // your email
+const APPROVAL_CSV_URL = "https://docs.google.com/spreadsheets/d/e/1A1Mx4QbDbRRri0vmdmAlJIFvb7UWYK0G4ZlTIKi3dPw/pub?output=csv"; // your published sheet CSV
+const DISCORD_INVITE = "https://discord.gg/YOURINVITE"; // replace with your Discord
 
-// Discord Application submission
-document.getElementById('discordAppForm').addEventListener('submit', async (e) => {
+// ===== TOKEN STORAGE =====
+function genToken() {
+  return Math.random().toString(36).substring(2, 12);
+}
+let userToken = localStorage.getItem("realmToken");
+
+// ===== SUBMIT DISCORD APPLICATION =====
+document.getElementById("appForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const username = document.getElementById('appUsername').value.trim();
-  const message = document.getElementById('appMessage').value.trim();
+  const username = document.getElementById("appUsername").value.trim();
+  const message = document.getElementById("appMessage").value.trim();
   if (!message) return alert("Please enter a message.");
 
-  const token = Math.random().toString(36).substring(2,10);
+  if (!userToken) {
+    userToken = genToken();
+    localStorage.setItem("realmToken", userToken);
+  }
+
+  const body = {
+    username,
+    message,
+    token: userToken,
+    approval_link: `${window.location.href}?token=${userToken}`
+  };
 
   try {
-    await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        username, message,
-        approval_link: `${window.location.href}?discord_application=${token}`
-      })
+    await fetch(FORM_ENDPOINT, {
+      method:"POST",
+      headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+      body: JSON.stringify(body)
     });
-    alert("✅ Application submitted! You’ll get a Discord link once approved.");
+    alert("Application sent! Check back soon for approval.");
     e.target.reset();
-  } catch (err) { console.error(err); alert("Error sending application."); }
+  } catch(err) {
+    console.error(err);
+    alert("Error sending application.");
+  }
 });
 
-// Suggestions submission
-document.getElementById('suggestionForm').addEventListener('submit', async (e) => {
+// ===== SUBMIT SUGGESTION =====
+document.getElementById("suggestForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const username = document.getElementById('suggestUsername').value.trim();
-  const message = document.getElementById('suggestMessage').value.trim();
+  const username = document.getElementById("sugUsername").value.trim();
+  const message = document.getElementById("sugMessage").value.trim();
   if (!message) return alert("Please enter a suggestion.");
 
   try {
-    await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    await fetch(FORM_ENDPOINT, {
+      method:"POST",
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify({ username, message })
     });
     alert("Suggestion sent successfully!");
     e.target.reset();
-  } catch (err) { console.error(err); alert("Error sending suggestion."); }
+  } catch(err) {
+    console.error(err);
+    alert("Error sending suggestion.");
+  }
 });
 
-// Show Discord popup if approved link clicked
-function checkDiscordApplication() {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("discord_application")) {
-    setTimeout(() => {
-      alert("🎉 Your Discord Application was approved! Join the Realm SMP Discord: " + DISCORD_LINK);
-    }, 500);
-  }
-}
-
-checkDiscordApplication();
-
-// Live server status
-async function checkServer() {
-  const statusEl = document.getElementById('server-status');
-  const playersEl = document.getElementById('server-players');
+// ===== POLL GOOGLE SHEET FOR APPROVAL =====
+async function checkApproval() {
+  if (!userToken) return;
   try {
-    const res = await fetch('https://api.mcstatus.io/v2/status/java/98.206.43.18:25565');
-    const data = await res.json();
-    if (data.online) {
-      statusEl.textContent = 'Online ✅';
-      playersEl.textContent = `${data.players.online}/${data.players.max}`;
-    } else {
-      statusEl.textContent = 'Offline ❌';
-      playersEl.textContent = '-';
+    const res = await fetch(APPROVAL_CSV_URL + "&t=" + Date.now());
+    const text = await res.text();
+    const rows = text.trim().split("\n");
+
+    // Skip header row: id,username,approved
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].split(",");
+      const token = cells[0].trim();        // column A = id/token
+      const status = cells[2].trim().toLowerCase(); // column C = approved/pending
+      if (token === userToken && status === "approved") {
+        alert("🎉 Your Discord application was approved!\nJoin: " + DISCORD_INVITE);
+        localStorage.removeItem("realmToken");
+        clearInterval(pollInterval);
+        return;
+      }
     }
-  } catch (err) {
-    console.error(err);
-    statusEl.textContent = 'Error ⚠️';
-    playersEl.textContent = '-';
+  } catch(err) {
+    console.error("Approval check error:", err);
   }
 }
-checkServer();
-setInterval(checkServer, 5000);
+
+// Start polling every 5 seconds
+const pollInterval = setInterval(checkApproval, 5000);
+checkApproval();
+
 </script>
 
 </body>
