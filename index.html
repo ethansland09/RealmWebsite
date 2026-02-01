@@ -68,6 +68,58 @@
 
     input, textarea, button { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
 
+    /* Suggestion Form Theme */
+    .suggestion-card {
+      max-width: 700px;
+      margin-top: 32px;
+      background: linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02));
+      border: 1px solid rgba(122,124,255,0.35);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    #suggestionForm input,
+    #suggestionForm textarea {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #0b0d12;
+      color: #eef0ff;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    #suggestionForm input:focus,
+    #suggestionForm textarea:focus {
+      outline: none;
+      border-color: #7a7cff;
+      box-shadow: 0 0 8px rgba(122,124,255,0.4);
+    }
+
+    #suggestionForm button {
+      padding: 14px 24px;
+      border-radius: 16px;
+      border: none;
+      background: #7a7cff;
+      color: #0b0d12;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    #suggestionForm button:hover {
+      background: #6569ff;
+      transform: translateY(-1px);
+    }
+
+    #suggestionForm button:active {
+      transform: translateY(0);
+    }
+
     @media (max-width: 900px) { header { grid-template-columns: 1fr; padding-top: 96px; } }
   </style>
 </head>
@@ -141,9 +193,9 @@
   <h2>Suggestions</h2>
   <p>Have an idea to improve Realm SMP? Share your suggestions with the team. Community feedback helps shape the future of the server.</p>
 
-  <div class="card" style="max-width: 700px; margin-top: 32px;">
+  <div class="card suggestion-card">
     <form id="suggestionForm">
-      <input type="text" id="username" placeholder="Your Minecraft username (optional)" />
+      <input type="text" id="username" placeholder="Your Minecraft username (optional)">
       <textarea id="message" placeholder="Your suggestion..." rows="5"></textarea>
       <button type="submit">Submit Suggestion</button>
     </form>
