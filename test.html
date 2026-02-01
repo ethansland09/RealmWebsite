@@ -6,73 +6,42 @@
 <title>Realm SMP</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
-
+* { box-sizing:border-box; margin:0; padding:0; }
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(rgba(11,13,18,0.85), rgba(11,13,18,0.85)),
-              url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed;
+  font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)),
+             url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed;
   color:#eef0ff;
 }
-
 a { color:inherit; text-decoration:none; }
-
 nav { position:sticky; top:0; z-index:10; background:rgba(11,13,18,0.85); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.06); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
 .nav-title { font-weight:800; letter-spacing:0.3px; }
 .nav-links { display:flex; gap:20px; font-weight:500; color:#cfd3ff; }
-
 header { max-width:1200px; margin:0 auto; padding:120px 24px 80px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; }
 header h1 { font-size:clamp(2.8rem,5vw,4.2rem); line-height:1.05; margin-bottom:16px; }
 header p { font-size:1.15rem; color:#cfd3ff; max-width:560px; }
 .hero-box { background:linear-gradient(180deg, rgba(122,124,255,0.18), rgba(122,124,255,0.04)); border:1px solid rgba(122,124,255,0.35); border-radius:24px; padding:32px; }
 .hero-box strong { color:#9aa0ff; }
-
 section { max-width:1200px; margin:0 auto; padding:96px 24px; }
 section h2 { font-size:2.2rem; margin-bottom:16px; }
 section p { color:#cfd3ff; max-width:760px; }
-
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px; margin-top:40px; }
 .card { background:#111420; border:1px solid rgba(255,255,255,0.06); border-radius:20px; padding:28px; text-align:center; }
-
 .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:28px; margin-top:48px; }
 .member { text-align:center; }
 .member img { width:96px; height:96px; border-radius:16px; image-rendering:pixelated; background:#000; margin-bottom:12px; }
 .member strong { display:block; }
 .role { color:#9aa0ff; font-size:0.9rem; }
-
 footer { border-top:1px solid rgba(255,255,255,0.06); padding:48px 24px; text-align:center; color:#b8bdff; }
-
 input, textarea, button { font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
-
-.suggestion-card, .application-card {
-  max-width:700px;
-  margin-top:32px;
-  background: linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02));
-  border:1px solid rgba(122,124,255,0.35);
-  border-radius:24px;
-  padding:32px;
-}
-
-#suggestionForm input, #suggestionForm textarea,
-#discordForm input, #discordForm textarea {
-  width:100%; padding:16px; margin-bottom:16px; border-radius:16px;
-  border:1px solid rgba(255,255,255,0.1); background:#0b0d12; color:#eef0ff; font-size:1rem; resize:vertical; transition:border 0.2s, box-shadow 0.2s;
-}
-
-#suggestionForm input:focus, #suggestionForm textarea:focus,
-#discordForm input:focus, #discordForm textarea:focus {
-  outline:none; border-color:#7a7cff; box-shadow:0 0 8px rgba(122,124,255,0.4);
-}
-
-#suggestionForm button, #discordForm button {
-  padding:14px 24px; border-radius:16px; border:none; background:#7a7cff; color:#0b0d12; font-weight:700; font-size:1rem; cursor:pointer; transition:background 0.2s, transform 0.1s;
-}
-
-#suggestionForm button:hover, #discordForm button:hover { background:#6569ff; transform:translateY(-1px); }
-#suggestionForm button:active, #discordForm button:active { transform:translateY(0); }
-
-@media (max-width:900px) { header { grid-template-columns:1fr; padding-top:96px; } }
+.suggestion-card, .application-card { max-width:700px; margin-top:32px; background:linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02)); border:1px solid rgba(122,124,255,0.35); border-radius:24px; padding:32px; }
+#suggestionForm input,#suggestionForm textarea,#discordForm input,#discordForm textarea { width:100%; padding:16px; margin-bottom:16px; border-radius:16px; border:1px solid rgba(255,255,255,0.1); background:#0b0d12; color:#eef0ff; font-size:1rem; resize:vertical; transition:border 0.2s, box-shadow 0.2s; }
+#suggestionForm input:focus,#suggestionForm textarea:focus,#discordForm input:focus,#discordForm textarea:focus { outline:none; border-color:#7a7cff; box-shadow:0 0 8px rgba(122,124,255,0.4); }
+#suggestionForm button,#discordForm button { padding:14px 24px; border-radius:16px; border:none; background:#7a7cff; color:#0b0d12; font-weight:700; font-size:1rem; cursor:pointer; transition:background 0.2s, transform 0.1s; }
+#suggestionForm button:hover,#discordForm button:hover { background:#6569ff; transform:translateY(-1px); }
+#suggestionForm button:active,#discordForm button:active { transform:translateY(0); }
+@media (max-width:900px){ header{grid-template-columns:1fr; padding-top:96px;} }
 </style>
 </head>
 <body>
@@ -129,22 +98,10 @@ input, textarea, button { font-family:'Inter', system-ui, -apple-system, BlinkMa
 <section id="team">
   <h2>The Team</h2>
   <div class="team-grid">
-    <div class="member">
-      <a href="https://namemc.com/profile/ethanmeister14" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin"></a>
-      <strong>ethanmeister14</strong><span class="role">Co-Owner & Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/GDarkz" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=4" alt="GDarkz skin"></a>
-      <strong>GDarkz</strong><span class="role">Co-Owner & Head Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin"></a>
-      <strong>BigtimeSmall</strong><span class="role">Developer</span>
-    </div>
-    <div class="member">
-      <a href="https://namemc.com/profile/MrBubble321" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin"></a>
-      <strong>MrBubble321</strong><span class="role">Developer</span>
-    </div>
+    <div class="member"><a href="https://namemc.com/profile/ethanmeister14" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin"></a><strong>ethanmeister14</strong><span class="role">Co-Owner & Developer</span></div>
+    <div class="member"><a href="https://namemc.com/profile/GDarkz" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=4" alt="GDarkz skin"></a><strong>GDarkz</strong><span class="role">Co-Owner & Head Developer</span></div>
+    <div class="member"><a href="https://namemc.com/profile/BigtimeSmall" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin"></a><strong>BigtimeSmall</strong><span class="role">Developer</span></div>
+    <div class="member"><a href="https://namemc.com/profile/MrBubble321" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin"></a><strong>MrBubble321</strong><span class="role">Developer</span></div>
   </div>
 </section>
 
@@ -179,70 +136,75 @@ input, textarea, button { font-family:'Inter', system-ui, -apple-system, BlinkMa
 /* Suggestions Form */
 document.getElementById('suggestionForm').addEventListener('submit', async function(e){
   e.preventDefault();
-  const username = document.getElementById('username').value.trim();
-  const message = document.getElementById('message').value.trim();
-  if(!message){ alert('Please enter a suggestion.'); return; }
+  const username=document.getElementById('username').value.trim();
+  const message=document.getElementById('message').value.trim();
+  if(!message){alert('Please enter a suggestion.');return;}
   try{
     await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({ username,message })
+      body:JSON.stringify({username,message})
     });
     alert('Suggestion sent successfully!'); this.reset();
-  }catch(err){ alert('Error sending suggestion.'); console.error(err); }
+  }catch(err){alert('Error sending suggestion.');console.error(err);}
 });
 
 /* Minecraft Server Status */
 async function checkServer(){
-  const statusEl = document.getElementById('server-status');
-  const playersEl = document.getElementById('server-players');
+  const statusEl=document.getElementById('server-status');
+  const playersEl=document.getElementById('server-players');
   try{
-    const res = await fetch('https://api.mcstatus.io/v2/status/java/98.206.43.18:25565');
-    const data = await res.json();
-    if(data.online){ statusEl.textContent='Online ✅'; playersEl.textContent=`${data.players.online}/${data.players.max}`; }
-    else{ statusEl.textContent='Offline ❌'; playersEl.textContent='-'; }
-  }catch(err){ console.error(err); statusEl.textContent='Error ⚠️'; playersEl.textContent='-'; }
+    const res=await fetch('https://api.mcstatus.io/v2/status/java/98.206.43.18:25565');
+    const data=await res.json();
+    if(data.online){ statusEl.textContent='Online ✅'; playersEl.textContent=`${data.players.online}/${data.players.max}`;}
+    else{statusEl.textContent='Offline ❌'; playersEl.textContent='-';}
+  }catch(err){console.error(err); statusEl.textContent='Error ⚠️'; playersEl.textContent='-';}
 }
 checkServer(); setInterval(checkServer,5000);
 
-/* Discord Application Form (Frontend-only API + Email Approval) */
-const discordInvite = 'https://discord.gg/zJnj88GTs3';
-const boxUrl = 'https://jsonbox.io/box_yourboxid'; // replace with your box ID
+/* Discord Application Form - jsonbin.io */
+const discordInvite='https://discord.gg/zJnj88GTs3';
+const binId='697f8d47ae596e708f097d40'; // Your Bin ID
+const binUrl=`https://api.jsonbin.io/v3/b/${binId}`;
 
-document.getElementById('discordForm').addEventListener('submit', async function(e){
+document.getElementById('discordForm').addEventListener('submit',async function(e){
   e.preventDefault();
-  const username = document.getElementById('appUsername').value.trim();
+  const username=document.getElementById('appUsername').value.trim();
   if(!username) return alert('Enter a username');
 
-  // Store in JSONBox
-  const res = await fetch(boxUrl,{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({ username, approved:false })
-  });
-  const data = await res.json();
-  const appId = data._id;
+  // Get current applications
+  let res=await fetch(binUrl+'/latest');
+  let data=await res.json();
+  let applications=data.record.applications||[];
 
-  // Send email to admin via FormSubmit with Approve button
-  await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({
-      username,
-      approve_link:`${boxUrl}/${appId}?approved=true`
-    })
+  const newApp={id:Date.now(),username,approved:false};
+  applications.push(newApp);
+
+  // Update bin
+  await fetch(binUrl,{
+    method:'PUT',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({applications})
   });
+
+  // Send email to admin
+  const formData=new FormData();
+  formData.append('name',username);
+  formData.append('message',`New Discord application submitted.\nUsername: ${username}\nApprove here: ${binUrl}?approveId=${newApp.id}`);
+  formData.append('_subject',`Discord Application: ${username}`);
+  formData.append('_captcha','false');
+
+  await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com',{method:'POST',body:formData});
 
   alert('Application submitted! Waiting for approval...');
 
-  // Poll for approval
-  const check = setInterval(async ()=>{
-    const statusRes = await fetch(`${boxUrl}?q={"_id":"${appId}"}`);
-    const apps = await statusRes.json();
-    if(apps[0] && apps[0].approved){
-      clearInterval(check);
-      alert(`Your application has been approved! Join the Discord: ${discordInvite}`);
-    }
+  // Poll bin for approval
+  const check=setInterval(async ()=>{
+    let statusRes=await fetch(binUrl+'/latest');
+    let statusData=await statusRes.json();
+    let apps=statusData.record.applications||[];
+    let app=apps.find(a=>a.id===newApp.id);
+    if(app && app.approved){ clearInterval(check); alert(`Your application has been approved! Join the Discord: ${discordInvite}`);}
   },3000);
 });
 </script>
