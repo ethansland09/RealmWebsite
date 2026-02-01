@@ -7,8 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 <style>
+/* ----- General Styles ----- */
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background:linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)), url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed; color:#eef0ff; }
+body { font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
+  background:linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)),
+  url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed; 
+  color:#eef0ff; }
 a { color:inherit; text-decoration:none; }
 nav { position:sticky; top:0; z-index:10; background:rgba(11,13,18,0.85); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.06); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
@@ -43,89 +47,89 @@ input, textarea, button { font-family:'Inter', system-ui, -apple-system, BlinkMa
 <body>
 
 <nav>
-  <div class="nav-inner">
-    <div class="nav-title">Realm SMP</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#server">Server</a>
-      <a href="#team">Team</a>
-      <a href="#suggestions">Suggestions</a>
-      <a href="#discord-application">Discord</a>
-    </div>
+<div class="nav-inner">
+  <div class="nav-title">Realm SMP</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#server">Server</a>
+    <a href="#team">Team</a>
+    <a href="#suggestions">Suggestions</a>
+    <a href="#discord-application">Discord</a>
   </div>
+</div>
 </nav>
 
 <header>
-  <div>
-    <h1>Realm SMP<br>Built to Last</h1>
-    <p>Realm SMP is a survival multiplayer server set on a fully handcrafted world made with Axiom. Exploration, progression, and player stories come first.</p>
-  </div>
-  <div class="hero-box">
-    <p><strong>World:</strong> Fully custom Axiom map</p>
-    <p><strong>Style:</strong> Long-term survival SMP</p>
-    <p><strong>Focus:</strong> Community-driven gameplay</p>
-  </div>
+<div>
+  <h1>Realm SMP<br>Built to Last</h1>
+  <p>Realm SMP is a survival multiplayer server set on a fully handcrafted world made with Axiom. Exploration, progression, and player stories come first.</p>
+</div>
+<div class="hero-box">
+  <p><strong>World:</strong> Fully custom Axiom map</p>
+  <p><strong>Style:</strong> Long-term survival SMP</p>
+  <p><strong>Focus:</strong> Community-driven gameplay</p>
+</div>
 </header>
 
 <section id="about">
-  <h2>About Realm SMP</h2>
-  <p>Realm SMP emphasizes clean design, stability, and a world that feels intentionally built rather than randomly generated.</p>
+<h2>About Realm SMP</h2>
+<p>Realm SMP emphasizes clean design, stability, and a world that feels intentionally built rather than randomly generated.</p>
 </section>
 
 <section id="features">
-  <h2>What Makes It Different</h2>
-  <div class="grid">
-    <div class="card"><h3>Custom Terrain</h3><p>Every biome, structure, and landscape was shaped by hand using Axiom.</p></div>
-    <div class="card"><h3>Balanced Survival</h3><p>Vanilla-style gameplay with careful tuning for long-term worlds.</p></div>
-    <div class="card"><h3>Community First</h3><p>Player builds, stories, and events define the server’s history.</p></div>
-    <div class="card"><h3>Bedrock and Java Crossplay</h3><p>Players on both Bedrock and Java Editions can join together seamlessly.</p></div>
-  </div>
+<h2>What Makes It Different</h2>
+<div class="grid">
+  <div class="card"><h3>Custom Terrain</h3><p>Every biome, structure, and landscape was shaped by hand using Axiom.</p></div>
+  <div class="card"><h3>Balanced Survival</h3><p>Vanilla-style gameplay with careful tuning for long-term worlds.</p></div>
+  <div class="card"><h3>Community First</h3><p>Player builds, stories, and events define the server’s history.</p></div>
+  <div class="card"><h3>Bedrock and Java Crossplay</h3><p>Players on both Bedrock and Java Editions can join together seamlessly.</p></div>
+</div>
 </section>
 
 <section id="server">
-  <h2>Server Status</h2>
-  <div class="card">
-    <p>Status: <span id="server-status">Loading...</span></p>
-    <p>Players: <span id="server-players">-</span></p>
-  </div>
+<h2>Server Status</h2>
+<div class="card">
+  <p>Status: <span id="server-status">Loading...</span></p>
+  <p>Players: <span id="server-players">-</span></p>
+</div>
 </section>
 
 <section id="team">
-  <h2>The Team</h2>
-  <div class="team-grid">
-    <div class="member"><a href="https://namemc.com/profile/ethanmeister14" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin"></a><strong>ethanmeister14</strong><span class="role">Co-Owner & Developer</span></div>
-    <div class="member"><a href="https://namemc.com/profile/GDarkz" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=4" alt="GDarkz skin"></a><strong>GDarkz</strong><span class="role">Co-Owner & Head Developer</span></div>
-    <div class="member"><a href="https://namemc.com/profile/BigtimeSmall" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin"></a><strong>BigtimeSmall</strong><span class="role">Developer</span></div>
-    <div class="member"><a href="https://namemc.com/profile/MrBubble321" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin"></a><strong>MrBubble321</strong><span class="role">Developer</span></div>
-  </div>
+<h2>The Team</h2>
+<div class="team-grid">
+  <div class="member"><a href="https://namemc.com/profile/ethanmeister14" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin"></a><strong>ethanmeister14</strong><span class="role">Co-Owner & Developer</span></div>
+  <div class="member"><a href="https://namemc.com/profile/GDarkz" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=4" alt="GDarkz skin"></a><strong>GDarkz</strong><span class="role">Co-Owner & Head Developer</span></div>
+  <div class="member"><a href="https://namemc.com/profile/BigtimeSmall" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin"></a><strong>BigtimeSmall</strong><span class="role">Developer</span></div>
+  <div class="member"><a href="https://namemc.com/profile/MrBubble321" target="_blank"><img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin"></a><strong>MrBubble321</strong><span class="role">Developer</span></div>
+</div>
 </section>
 
 <section id="suggestions">
-  <h2>Suggestions</h2>
-  <p>Have an idea to improve Realm SMP? Share your suggestions with the team.</p>
-  <div class="card suggestion-card">
-    <form id="suggestionForm">
-      <input type="text" id="username" placeholder="Your Minecraft username (optional)">
-      <textarea id="message" placeholder="Your suggestion..." rows="5"></textarea>
-      <button type="submit">Submit Suggestion</button>
-    </form>
-  </div>
+<h2>Suggestions</h2>
+<p>Have an idea to improve Realm SMP? Share your suggestions with the team.</p>
+<div class="card suggestion-card">
+<form id="suggestionForm">
+  <input type="text" id="username" placeholder="Your Minecraft username (optional)">
+  <textarea id="message" placeholder="Your suggestion..." rows="5"></textarea>
+  <button type="submit">Submit Suggestion</button>
+</form>
+</div>
 </section>
 
 <section id="discord-application">
-  <h2>Apply to Join Our Discord</h2>
-  <p>Submit your Minecraft username to apply. You'll get the invite automatically once approved.</p>
-  <div class="card application-card">
-    <form id="discordForm">
-      <input type="text" id="appUsername" placeholder="Your Minecraft username" required>
-      <button type="submit">Submit Application</button>
-    </form>
-  </div>
+<h2>Apply to Join Our Discord</h2>
+<p>Submit your Minecraft username to apply. You'll get the invite automatically once approved.</p>
+<div class="card application-card">
+<form id="discordForm">
+  <input type="text" id="appUsername" placeholder="Your Minecraft username" required>
+  <button type="submit">Submit Application</button>
+</form>
+</div>
 </section>
 
 <footer>
-  <p>Realm SMP © 2026 · Built by the Realm SMP Development Team</p>
+<p>Realm SMP © 2026 · Built by the Realm SMP Development Team</p>
 </footer>
 
 <script>
@@ -158,7 +162,7 @@ async function checkServer(){
 }
 checkServer(); setInterval(checkServer,5000);
 
-/* Discord Application Form with Google Sheets */
+/* Discord Application with Tabletop.js */
 const sheetID = '1A1Mx4QbDbRRri0vmdmAlJIFvb7UWYK0G4ZlTIKi3dPw';
 const discordInvite = 'https://discord.gg/zJnj88GTs3';
 
@@ -167,15 +171,15 @@ function loadApplications(){
     key: sheetID,
     simpleSheet: true,
     callback: data => {
-      // check approvals
       const username = localStorage.getItem('discordAppUsername');
       if(!username) return;
-      const app = data.find(a=>a.Username===username && a.Approved.toString().toLowerCase() === 'true');
+      const app = data.find(a => a.Username === username && a.Approved.toString().toLowerCase() === 'true');
       if(app){
         alert(`Your application has been approved! Join the Discord: ${discordInvite}`);
         localStorage.removeItem('discordAppUsername');
       }
-    }
+    },
+    debug: true
   });
 }
 
@@ -190,6 +194,5 @@ document.getElementById('discordForm').addEventListener('submit', e=>{
   alert('Application submitted! Ask admin to approve in Google Sheet.');
 });
 </script>
-
 </body>
 </html>
