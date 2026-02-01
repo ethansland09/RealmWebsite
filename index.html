@@ -61,7 +61,7 @@
     section p { color: #cfd3ff; max-width: 760px; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; margin-top: 40px; }
-    .card { background: #111420; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; }
+    .card { background: #111420; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; text-align: center; }
 
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-top: 48px; }
     .member { text-align: center; }
@@ -136,6 +136,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#features">Features</a>
+      <a href="#server">Server</a>
       <a href="#team">Team</a>
       <a href="#suggestions">Suggestions</a>
     </div>
@@ -166,6 +167,14 @@
     <div class="card"><h3>Balanced Survival</h3><p>Vanilla-style gameplay with careful tuning for long-term worlds.</p></div>
     <div class="card"><h3>Community First</h3><p>Player builds, stories, and events define the server’s history.</p></div>
     <div class="card"><h3>Bedrock and Java Crossplay</h3><p>Players on both Bedrock and Java Editions can join together seamlessly.</p></div>
+  </div>
+</section>
+
+<section id="server">
+  <h2>Server Status</h2>
+  <div class="card">
+    <p>Status: <span id="server-status">Loading...</span></p>
+    <p>Players: <span id="server-players">-</span></p>
   </div>
 </section>
 
@@ -213,6 +222,7 @@
 </footer>
 
 <script>
+  // Suggestion form
   document.getElementById('suggestionForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const username = document.getElementById('username').value.trim();
@@ -236,6 +246,32 @@
       console.error(err);
     }
   });
+
+  // mcstatus.io live server check (without version)
+  async function checkServer() {
+    const statusEl = document.getElementById('server-status');
+    const playersEl = document.getElementById('server-players');
+
+    try {
+      const res = await fetch('https://api.mcstatus.io/v2/status/java/98.206.43.18:25565');
+      const data = await res.json();
+
+      if (data.online) {
+        statusEl.textContent = 'Online ✅';
+        playersEl.textContent = `${data.players.online}/${data.players.max}`;
+      } else {
+        statusEl.textContent = 'Offline ❌';
+        playersEl.textContent = '-';
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = 'Error ⚠️';
+      playersEl.textContent = '-';
+    }
+  }
+
+  checkServer();
+  setInterval(checkServer, 10000); // refresh every minute
 </script>
 
 </body>
