@@ -5,14 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Realm SMP</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background:linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)),
-             url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed;
-  color:#eef0ff;
-}
+body { font-family:'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background:linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)), url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg") center/cover no-repeat fixed; color:#eef0ff; }
 a { color:inherit; text-decoration:none; }
 nav { position:sticky; top:0; z-index:10; background:rgba(11,13,18,0.85); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.06); }
 .nav-inner { max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
@@ -162,50 +158,36 @@ async function checkServer(){
 }
 checkServer(); setInterval(checkServer,5000);
 
-/* Discord Application Form - jsonbin.io */
-const discordInvite='https://discord.gg/zJnj88GTs3';
-const binId='697f8d47ae596e708f097d40'; // Your Bin ID
-const binUrl=`https://api.jsonbin.io/v3/b/${binId}`;
+/* Discord Application Form with Google Sheets */
+const sheetID = '1A1Mx4QbDbRRri0vmdmAlJIFvb7UWYK0G4ZlTIKi3dPw';
+const discordInvite = 'https://discord.gg/zJnj88GTs3';
 
-document.getElementById('discordForm').addEventListener('submit',async function(e){
-  e.preventDefault();
-  const username=document.getElementById('appUsername').value.trim();
-  if(!username) return alert('Enter a username');
-
-  // Get current applications
-  let res=await fetch(binUrl+'/latest');
-  let data=await res.json();
-  let applications=data.record.applications||[];
-
-  const newApp={id:Date.now(),username,approved:false};
-  applications.push(newApp);
-
-  // Update bin
-  await fetch(binUrl,{
-    method:'PUT',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({applications})
+function loadApplications(){
+  Tabletop.init({
+    key: sheetID,
+    simpleSheet: true,
+    callback: data => {
+      // check approvals
+      const username = localStorage.getItem('discordAppUsername');
+      if(!username) return;
+      const app = data.find(a=>a.Username===username && a.Approved.toString().toLowerCase() === 'true');
+      if(app){
+        alert(`Your application has been approved! Join the Discord: ${discordInvite}`);
+        localStorage.removeItem('discordAppUsername');
+      }
+    }
   });
+}
 
-  // Send email to admin
-  const formData=new FormData();
-  formData.append('name',username);
-  formData.append('message',`New Discord application submitted.\nUsername: ${username}\nApprove here: ${binUrl}?approveId=${newApp.id}`);
-  formData.append('_subject',`Discord Application: ${username}`);
-  formData.append('_captcha','false');
+// Poll every 3 seconds
+setInterval(loadApplications, 3000);
 
-  await fetch('https://formsubmit.co/ajax/ethan.sloss09@gmail.com',{method:'POST',body:formData});
-
-  alert('Application submitted! Waiting for approval...');
-
-  // Poll bin for approval
-  const check=setInterval(async ()=>{
-    let statusRes=await fetch(binUrl+'/latest');
-    let statusData=await statusRes.json();
-    let apps=statusData.record.applications||[];
-    let app=apps.find(a=>a.id===newApp.id);
-    if(app && app.approved){ clearInterval(check); alert(`Your application has been approved! Join the Discord: ${discordInvite}`);}
-  },3000);
+document.getElementById('discordForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const username = document.getElementById('appUsername').value.trim();
+  if(!username) return alert('Enter a username');
+  localStorage.setItem('discordAppUsername', username);
+  alert('Application submitted! Ask admin to approve in Google Sheet.');
 });
 </script>
 
