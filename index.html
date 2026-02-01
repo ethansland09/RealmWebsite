@@ -4,149 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Realm SMP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, #2b2b44, #0f0f1a 60%);
-      color: #eaeaf0;
-      line-height: 1.6;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0b0d12;
+      color: #eef0ff;
     }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,13,18,0.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-title { font-weight: 800; letter-spacing: 0.3px; }
+    .nav-links { display: flex; gap: 20px; font-weight: 500; color: #cfd3ff; }
+
+    /* HERO */
     header {
-      padding: 96px 24px 72px;
-      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
     }
     header h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin: 0 0 12px;
-      letter-spacing: 0.5px;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      margin: 0 0 16px;
+      line-height: 1.05;
     }
     header p {
-      max-width: 720px;
-      margin: 0 auto 28px;
-      color: #cfd0ff;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      color: #cfd3ff;
+      max-width: 560px;
     }
-    .badge-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+    .hero-box {
+      background: linear-gradient(180deg, rgba(122,124,255,0.18), rgba(122,124,255,0.04));
+      border: 1px solid rgba(122,124,255,0.35);
+      border-radius: 24px;
+      padding: 32px;
     }
-    .badge {
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #5a5cff, #7a7cff);
-      color: #0b0b1a;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
+    .hero-box strong { color: #9aa0ff; }
+
+    /* SECTIONS */
     section {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 56px 24px;
+      padding: 96px 24px;
     }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+    section p { color: #cfd3ff; max-width: 760px; }
+
+    /* GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
     }
     .card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #111420;
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 20px;
-      padding: 24px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      padding: 28px;
     }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.25rem;
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
     }
-    .card p { color: #d6d7ff; }
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0;
-    }
-    .list li {
-      padding: 6px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.15);
-    }
-    .list li:last-child { border-bottom: none; }
-    footer {
+    .member {
       text-align: center;
-      padding: 40px 20px 56px;
-      color: #b9bbff;
-      font-size: 0.9rem;
     }
-    .accent {
-      background: linear-gradient(135deg, #7a7cff, #9aa0ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .member img {
+      width: 96px;
+      height: 96px;
+      border-radius: 16px;
+      image-rendering: pixelated;
+      background: #000;
+      margin-bottom: 12px;
+    }
+    .member strong { display: block; }
+    .role { color: #9aa0ff; font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 24px;
+      text-align: center;
+      color: #b8bdff;
+    }
+
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; padding-top: 96px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1><span class="accent">Realm SMP</span></h1>
-    <p>
-      A Minecraft survival multiplayer experience set on a fully custom world.
-      Hand-crafted terrain, unique builds, and long-term progression shaped by the community.
-    </p>
-    <div class="badge-row">
-      <div class="badge">Custom Map</div>
-      <div class="badge">Axiom Built</div>
-      <div class="badge">Community Driven</div>
-      <div class="badge">Survival SMP</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-title">Realm SMP</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#team">Team</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <section>
-    <div class="grid">
-      <div class="card">
-        <h3>About the Server</h3>
-        <p>
-          Realm SMP is built from the ground up using Axiom, resulting in a world that feels
-          intentional, immersive, and alive. Every mountain, valley, and structure exists
-          for exploration, storytelling, and survival.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Co-Owners</h3>
-        <ul class="list">
-          <li>ethanmeister14</li>
-          <li>GDarkz</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Development Team</h3>
-        <ul class="list">
-          <li>ethanmeister14</li>
-          <li>GDarkz</li>
-          <li>BigtimeSmall</li>
-          <li>Mr Bubble</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>What Makes Realm SMP Different</h3>
-        <p>
-          This is not a generated seed with a few tweaks. Realm SMP focuses on custom geography,
-          balanced survival, and organic player stories that grow over time.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
+<header>
+  <div>
+    <h1>A Custom Minecraft SMP<br>Built to Last</h1>
     <p>
-      Realm SMP © 2026 · Built by the Realm SMP Development Team
+      Realm SMP is a survival multiplayer server set on a fully handcrafted world made with Axiom.
+      Exploration, progression, and player stories come first.
     </p>
-  </footer>
+  </div>
+  <div class="hero-box">
+    <p><strong>World:</strong> Fully custom Axiom map</p>
+    <p><strong>Style:</strong> Long-term survival SMP</p>
+    <p><strong>Focus:</strong> Community-driven gameplay</p>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Realm SMP</h2>
+  <p>
+    Realm SMP emphasizes clean design, stability, and a world that feels intentionally built rather than randomly generated.
+  </p>
+</section>
+
+<section id="features">
+  <h2>What Makes It Different</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Custom Terrain</h3>
+      <p>Every biome, structure, and landscape was shaped by hand using Axiom.</p>
+    </div>
+    <div class="card">
+      <h3>Balanced Survival</h3>
+      <p>Vanilla-style gameplay with careful tuning for long-term worlds.</p>
+    </div>
+    <div class="card">
+      <h3>Community First</h3>
+      <p>Player builds, stories, and events define the server’s history.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <h2>The Team</h2>
+
+  <div class="team-grid">
+    <div class="member">
+      <img src="https://namemc.com/profile/ethanmeister14.png" alt="ethanmeister14 skin">
+      <strong>ethanmeister14</strong>
+      <span class="role">Co-Owner & Developer</span>
+    </div>
+    <div class="member">
+      <img src="https://namemc.com/profile/GDarkz.png" alt="GDarkz skin">
+      <strong>GDarkz</strong>
+      <span class="role">Co-Owner & Developer</span>
+    </div>
+    <div class="member">
+      <img src="https://namemc.com/profile/BigtimeSmall.png" alt="BigtimeSmall skin">
+      <strong>BigtimeSmall</strong>
+      <span class="role">Developer</span>
+    </div>
+    <div class="member">
+      <img src="https://namemc.com/profile/MrBubble.png" alt="Mr Bubble skin">
+      <strong>Mr Bubble</strong>
+      <span class="role">Developer</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Realm SMP © 2026 · Built by the Realm SMP Development Team</p>
+</footer>
 
 </body>
 </html>
