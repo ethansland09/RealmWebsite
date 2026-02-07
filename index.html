@@ -14,7 +14,7 @@
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background:
         linear-gradient(rgba(11,13,18,0.85), rgba(11,13,18,0.85)),
-        url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=698755c7&is=69860447&hm=5564b8c259fb99a637052df03920e87ae78a0b4a1b15ea8b92192711c86c6281&")
+        url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=6988a747&is=698755c7&hm=17db39b3539bfbb34a00f20d75bf3fb54b3bad38de431a5e10da9725fcb284f5&")
         center / cover no-repeat fixed;
       color: #eef0ff;
     }
@@ -112,16 +112,37 @@
     }
 
     .member {
+      position: relative;
       text-align: center;
     }
 
-    .member img {
+    .member img.head {
       width: 96px;
       height: 96px;
       border-radius: 16px;
       image-rendering: pixelated;
       background: #000;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .body-render {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 128px;
+      image-rendering: pixelated;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,0.7));
+      z-index: 3;
+    }
+
+    .member:hover .body-render {
+      opacity: 1;
     }
 
     .member strong {
@@ -170,6 +191,9 @@
         grid-template-columns: 1fr;
         padding-top: 96px;
       }
+      .body-render {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -190,10 +214,8 @@
 
 <header>
   <div>
-    <h1>The Realm<br> </h1>
-    <p>
-      A Smp
-    </p>
+    <h1>The Realm<br></h1>
+    <p>A Smp</p>
   </div>
 
   <div class="hero-box">
@@ -235,7 +257,8 @@
   <div class="team-grid">
     <div class="member">
       <a href="https://namemc.com/profile/ethanmeister14" target="_blank">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4">
+        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=e82e7bebf56a58eb&scale=8">
+        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=8">
       </a>
       <strong>ethanmeister14</strong>
       <div class="role">Owner & Developer</div>
@@ -243,7 +266,8 @@
 
     <div class="member">
       <a href="https://namemc.com/profile/BigtimeSmall" target="_blank">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4">
+        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=2f5896589820861a&scale=8">
+        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=8">
       </a>
       <strong>BigtimeSmall</strong>
       <div class="role">Developer</div>
@@ -251,7 +275,8 @@
 
     <div class="member">
       <a href="https://namemc.com/profile/MrBubble321" target="_blank">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4">
+        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=59b1a18f43a2ca78&scale=8">
+        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=8">
       </a>
       <strong>MrBubble321</strong>
       <div class="role">Developer</div>
@@ -264,12 +289,9 @@
   <p>Click anywhere below to open the application.</p>
 
   <div class="suggestion-card">
-    <a
-      class="iframe-link"
+    <a class="iframe-link"
       href="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform"
-      target="_blank"
-      aria-label="Open application form">
-    </a>
+      target="_blank"></a>
 
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform?embedded=true"
