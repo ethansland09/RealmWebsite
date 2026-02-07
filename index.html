@@ -103,6 +103,38 @@
       text-align: center;
     }
 
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .member {
+      text-align: center;
+    }
+
+    .member img {
+      width: 96px;
+      height: 96px;
+      border-radius: 16px;
+      image-rendering: pixelated;
+      background: #000;
+      margin-bottom: 12px;
+    }
+
+    .member strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      color: #9aa0ff;
+      font-size: 0.9rem;
+    }
+
+    /* Application */
     .suggestion-card {
       max-width: 900px;
       margin-top: 40px;
@@ -143,6 +175,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#features">Features</a>
+      <a href="#team">Team</a>
       <a href="#apply">Apply</a>
     </div>
   </div>
@@ -187,6 +220,35 @@
     <div class="card">
       <h3>Fair Play</h3>
       <p>Clear rules, active moderation, and a friendly atmosphere.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <h2>The Team</h2>
+  <div class="team-grid">
+    <div class="member">
+      <a href="https://namemc.com/profile/ethanmeister14" target="_blank" rel="noopener">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin">
+      </a>
+      <strong>ethanmeister14</strong>
+      <span class="role">Co-Owner & Developer</span>
+    </div>
+
+    <div class="member">
+      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank" rel="noopener">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin">
+      </a>
+      <strong>BigtimeSmall</strong>
+      <span class="role">Developer</span>
+    </div>
+
+    <div class="member">
+      <a href="https://namemc.com/profile/MrBubble321" target="_blank" rel="noopener">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin">
+      </a>
+      <strong>MrBubble321</strong>
+      <span class="role">Developer</span>
     </div>
   </div>
 </section>
