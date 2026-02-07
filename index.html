@@ -126,22 +126,23 @@
 
     .member strong {
       display: block;
-      margin-bottom: 4px;
+      margin-top: 4px;
     }
 
     .role {
+      margin-top: 2px;
       color: #9aa0ff;
       font-size: 0.9rem;
     }
 
     /* Application */
     .suggestion-card {
+      position: relative;
       max-width: 900px;
       margin-top: 40px;
       background: linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02));
       border: 1px solid rgba(122,124,255,0.35);
       border-radius: 24px;
-      padding: 0;
       overflow: hidden;
     }
 
@@ -149,6 +150,12 @@
       width: 100%;
       height: 900px;
       border: none;
+    }
+
+    .iframe-link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
     }
 
     footer {
@@ -185,8 +192,8 @@
   <div>
     <h1>The Realm<br>Built to Last</h1>
     <p>
-      The Realm is a long-term survival SMP focused on community, creativity,
-      and a carefully designed world where player stories matter.
+      A long-term survival SMP focused on community, creativity,
+      and a world that’s meant to last.
     </p>
   </div>
 
@@ -200,9 +207,8 @@
 <section id="about">
   <h2>About The Realm</h2>
   <p>
-    The Realm is designed to be a lasting world. No rushed resets, no chaos,
-    just a carefully curated SMP where players can build, explore, and grow
-    together over time.
+    No rushed resets. No chaos. Just a carefully curated SMP built for
+    long-term play and meaningful stories.
   </p>
 </section>
 
@@ -211,56 +217,61 @@
   <div class="grid">
     <div class="card">
       <h3>Custom World</h3>
-      <p>A handcrafted environment designed for exploration and builds.</p>
+      <p>Handcrafted terrain built for exploration.</p>
     </div>
     <div class="card">
       <h3>Active Community</h3>
-      <p>Players who care about collaboration and long-term projects.</p>
+      <p>Players who care about long-term builds.</p>
     </div>
     <div class="card">
       <h3>Fair Play</h3>
-      <p>Clear rules, active moderation, and a friendly atmosphere.</p>
+      <p>Clear rules and active moderation.</p>
     </div>
   </div>
 </section>
 
 <section id="team">
   <h2>The Team</h2>
+
   <div class="team-grid">
     <div class="member">
-      <a href="https://namemc.com/profile/ethanmeister14" target="_blank" rel="noopener">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 skin">
+      <a href="https://namemc.com/profile/ethanmeister14" target="_blank">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4">
       </a>
       <strong>ethanmeister14</strong>
-      <span class="role">Co-Owner & Developer</span>
+      <div class="role">Owner & Developer</div>
     </div>
 
     <div class="member">
-      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank" rel="noopener">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4" alt="BigtimeSmall skin">
+      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=4">
       </a>
       <strong>BigtimeSmall</strong>
-      <span class="role">Developer</span>
+      <div class="role">Developer</div>
     </div>
 
     <div class="member">
-      <a href="https://namemc.com/profile/MrBubble321" target="_blank" rel="noopener">
-        <img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4" alt="MrBubble321 skin">
+      <a href="https://namemc.com/profile/MrBubble321" target="_blank">
+        <img src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=4">
       </a>
       <strong>MrBubble321</strong>
-      <span class="role">Developer</span>
+      <div class="role">Developer</div>
     </div>
   </div>
 </section>
 
 <section id="apply">
   <h2>Apply to Join The Realm</h2>
-  <p>
-    Interested in joining The Realm? Complete the application below.
-    All applications are reviewed by the staff team.
-  </p>
+  <p>Click anywhere below to open the application.</p>
 
   <div class="suggestion-card">
+    <a
+      class="iframe-link"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform"
+      target="_blank"
+      aria-label="Open application form">
+    </a>
+
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform?embedded=true"
       loading="lazy">
