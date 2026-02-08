@@ -109,6 +109,15 @@
   .member strong { display: block; margin-top: 4px; }
   .role { margin-top: 2px; color: #9aa0ff; font-size: 0.9rem; }
 
+  /* Tools */
+  .tool-card img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+  }
+
   /* Application */
   .suggestion-card {
     position: relative;
@@ -181,15 +190,6 @@
     cursor: pointer;
   }
 
-  /* Tools */
-  .tool-card img {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    margin-bottom: 14px;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
-  }
-
   @media (max-width: 900px) { .body-render { display: none; } }
 </style>
 </head>
@@ -255,7 +255,7 @@
     <a class="card tool-card" href="https://papermc.io" target="_blank">
       <img src="https://cdn.discordapp.com/attachments/1465553426640273594/1470111075427946648/papermc-logo-270F7CE4FA-seeklogo.com-2305263855-removebg-preview.png?ex=698a1b21&is=6988c9a1&hm=7c926fdb9ad0531a3139935c25331f02c5d6a097a32443a30a6d179cdccec453&animated=true" alt="Paper">
       <h3>Paper</h3>
-      <p> Spigiot based Minecraft server software we use to run The Realm.</p>
+      <p>Spigot-based Minecraft server software we use to run The Realm.</p>
     </a>
 
     <a class="card tool-card" href="https://modrinth.com/plugin/geyser" target="_blank">
@@ -271,9 +271,9 @@
     </a>
 
     <a class="card tool-card" href="https://www.auto-mcs.com/" target="_blank">
-      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fhomarr-labs%2Fdashboard-icons%2Fpng%2Fauto-mcs.png&f=1&nofb=1&ipt=e373227498fcc70ebb1dd22d7149aa9069804b1f813eff5965983ddeb30f0b1c" alt="Auto-MCS">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fhomarr-labs%2Fdashboard-icons%2Fpng%2Fauto-mcs.png" alt="Auto-MCS">
       <h3>Auto MCS</h3>
-      <p>server management, backups, and restarts for The Realm.</p>
+      <p>Server management, backups, and restarts for The Realm.</p>
     </a>
 
     <a class="card tool-card" href="https://www.spigotmc.org/resources/citizens.13811/" target="_blank">
@@ -286,6 +286,12 @@
       <img src="https://cdn.modrinth.com/data/Vm7B3ymm/27df961b4e8f0d36287aae64a8c9872b090739ee.png" alt="Typewriter">
       <h3>Typewriter</h3>
       <p>Cinematic text and dialogue effects for events and lore on The Realm.</p>
+    </a>
+
+    <a class="card tool-card" href="https://www.lunarclient.com/" target="_blank">
+      <img src="data:image/webp;base64,UklGRrYEAABXRUJQVlA4WAoAAAAQAAAAfwAAdAAAQUxQSEoEAAABoFRbT55ti4RIQAISkIAEJCABCZWAhEqIhEpAQobf7Bo8LeHvfr9pREwAbeyyKP62OzH93ijor+HHeIG98g/hC0M1/4ykGP2En+AFMysfjy9M1ny4pJj/hIN5wZqVD8UXltV8pKiwP1cOIZTaTMATjuMEZi2Ovn1VC3DxUbjArIWp31UTNB0kNpirI3sQCyD+EE5glkBjU7MAFx+AC8wt0XAuaoGm7WKDVQvTTFctgPitnMBcHc0OYgEu3oYLzBLImp2NKDULNG0SG6wtkf3OI4iLGgDxGziBVQuT2SU8cQSRqxbg4sW4wFwd2f0NQCuPIApigaalYoNVAg1ulcanZgDEL+ME1pao28eeGicQFzUAF69RYNXC1BsEXYFnELlqgaYFQoO1OuoNAjRaOYgBED/J3bBKoF6+ACAvRZSaASg8oyiMLVF3VPx1ixEXNaDFYe6BUQtT94XXh9Z31QDcPMYrjNVRNz94LxsQBTHg4RFe0S+B+r3iM2xBlFofHrY5RXdLZPSKb9qVi3bhsT3o1cJk9IpvWYm5i8jVLlyWjF5xZPWKzmulGA1EofXA97H2VDKzoresVKuJ+OmRvozOSmZ+0B3WCZfqFSzETwdCV+u4yV6xB2cBJLOFuHXUHo9vZVuEkTv8JCK6bxoZOrQndyQys1qo8+ZpKQ2h+gXfcX81+su5p2Ic0jTnxriO3CFf10uSjoBxEfe04c9X6Whf4U8QJPcho8LVAOidtihftQPfRMRVAYh/iRjFsTbond0W4UsGNHq9lOldBoQXIvK4aFOeIW+h0nvADNK4Cy1A8aOOyB2VDvbJGFk6uM/lI6Uh0mHM95HuITqG04PsDoSxfoSrDdA7HCcMyiOIqDZaeJ0y6B4UrxPJIPAY9ifSUWnMXN4Go5/l/LVLGAa/Wn6OU1cTuE3SOLi1GEiblAl1rQQInwZ+GU5V8VeyP4uMSwYv6GzpKMijuBmIONYG4M6Oeo+gblCCtxCRByoZlwlT8IyJgjvYSBFPhGtAxqsmUwVv4iYh2YijQCLZk9AmNAvRRpTgaSDnbZ5Z6gew0pLr1FlQb6N0ljQNmmyLruPmAfls1BbAzUe7VkALJ/NLABefi9oa0HSg6y0vArR0nBZeWFcBWuYpjlfzuF6orAPgTjzIJdHlMp431pUASAlscPF6ABRaK14K3MkREZXFXkXK6yWC98ZLZXzfjojbBiMTLUUcqwJ3dvQ3nkBoMSLKeOj73k/dBh5XB7ftEm1ALXaQ363SFpW6014P78F9dO2kTHuY6z7q6QxUd1FPp6C6h3paRaSUUmLwEyjv8DANDiGVUqpcHWtGXa4yHdY9a2mmRcvS8t9C7Sqr4n8/9covobE/KvQ+vyR04n9/GHqwMJKGHozGhoEHC/Y/+On/BmWqHKFM/TO3HIG2/kU4/r9Pmd6mlenz5ss0Ov5PSyIiOk3++kMVrBsOlWRdvxJWUDggRgAAAHAGAJ0BKoAAdQA+kUihTKWkIyIgiACwEglpbuF0kABPbYi8QVHPbEXiCo57Yi8QVHPbEXiCo57Yi8QTYAD+/0X4AAAAAAA=">
+      <h3>Lunar Client</h3>
+      <p>Recommended Client to use in The Realm Building for its Waypoints and Minimap.</p>
     </a>
 
   </div>
@@ -356,10 +362,23 @@
 </footer>
 </div> <!-- end mainPage -->
 
+<!-- History Page -->
+<div id="historyPage" class="history-page">
+  <img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=69893a37&is=6987e8b7&hm=3c9d63bc48ea722bf492000a93af2ec75633a75088fb8f84c0750cecdc99acab&" alt="The Realm SMP Season 4 Map">
+  <span>The Realm SMP Season 4 Map</span>
+  <span>Realm Smp Season 4 was very short lived as it only was a thing for 1 day before toxicity took over the comunity causing the original owner to leave the realm luckly they came back but as head builder we hope to learn from our mistakes on season 4</span>
+  
+  <button onclick="backToMain()">Back</button>
+</div>
+
+<!-- Fidget Spinner -->
+<img id="fidget-spinner" src="https://cdn.discordapp.com/attachments/1270821973781647444/1469827434588274893/IMG_8789.png?ex=698912f8&is=6987c178&hm=743a3c77f10e02426c0c1f6cdbe64c48dd50a10cc480d563371127506fc0aeb2&" alt="fidget spinner">
+
 <script>
+  // Navigation functions
   function showSection(id) {
     document.getElementById('mainPage').style.display = 'block';
-    document.getElementById('historyPage')?.style.display = 'none';
+    document.getElementById('historyPage').style.display = 'none';
     document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
   }
 
@@ -372,6 +391,26 @@
     document.getElementById('historyPage').style.display = 'none';
     document.getElementById('mainPage').style.display = 'block';
   }
+
+  // Fidget spinner logic
+  const spinner = document.getElementById('fidget-spinner');
+  let angle = 0;
+  let velocity = 0;
+
+  function animate() {
+      if (Math.abs(velocity) > 0.01) {
+          angle += velocity;
+          velocity *= 0.97;
+          spinner.style.transform = `rotate(${angle}deg)`;
+      }
+      requestAnimationFrame(animate);
+  }
+
+  spinner.addEventListener('click', () => {
+      velocity += 20 + Math.random() * 10;
+  });
+
+  animate();
 </script>
 
 </body>
