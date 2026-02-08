@@ -181,6 +181,15 @@
     cursor: pointer;
   }
 
+  /* Tools */
+  .tool-card img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+  }
+
   @media (max-width: 900px) { .body-render { display: none; } }
 </style>
 </head>
@@ -196,6 +205,7 @@
     <div class="nav-links">
       <a onclick="showSection('about')">About</a>
       <a onclick="showSection('features')">Features</a>
+      <a onclick="showSection('tools')">Tools</a>
       <a onclick="showHistory()">History</a>
       <a onclick="showSection('team')">Team</a>
       <a onclick="showSection('apply')">Apply</a>
@@ -227,6 +237,57 @@
       <h3>Fair Play</h3>
       <p>No Advantages for one team most of the time.</p>
     </div>
+  </div>
+</section>
+
+<!-- Tools Section -->
+<section id="tools">
+  <h2>Server Tools</h2>
+  <p>These are the core tools we use to run The Realm SMP:</p>
+  <div class="grid">
+
+    <a class="card tool-card" href="https://modrinth.com/mod/axiom" target="_blank">
+      <img src="https://cdn.modrinth.com/data/N6n5dqoA/dd175669d5ac228dc00453d13528ad26c1f056ac.png" alt="Axiom">
+      <h3>Axiom</h3>
+      <p>Axiom is used for advanced world editing and terrain work.</p>
+    </a>
+
+    <a class="card tool-card" href="https://papermc.io" target="_blank">
+      <img src="https://cdn.discordapp.com/attachments/1465553426640273594/1470111075427946648/papermc-logo-270F7CE4FA-seeklogo.com-2305263855-removebg-preview.png?ex=698a1b21&is=6988c9a1&hm=7c926fdb9ad0531a3139935c25331f02c5d6a097a32443a30a6d179cdccec453&animated=true" alt="Paper">
+      <h3>Paper</h3>
+      <p>High-performance Minecraft server software.</p>
+    </a>
+
+    <a class="card tool-card" href="https://modrinth.com/plugin/geyser" target="_blank">
+      <img src="https://cdn.modrinth.com/data/wKkoqHrH/6e8e781d5669ecef9e19a73b5c2eed060d6f73e7_96.webp" alt="Geyser">
+      <h3>Geyser</h3>
+      <p>Allows Bedrock and Java players to play together.</p>
+    </a>
+
+    <a class="card tool-card" href="https://modrinth.com/mod/distanthorizons" target="_blank">
+      <img src="https://cdn.modrinth.com/data/uCdwusMi/e716cda9bb568b5373ff76e363fb4c6d7278fba6_96.webp" alt="Distant Horizons">
+      <h3>Distant Horizons</h3>
+      <p>Extended render distances without performance loss.</p>
+    </a>
+
+    <a class="card tool-card" href="https://www.auto-mcs.com/" target="_blank">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fhomarr-labs%2Fdashboard-icons%2Fpng%2Fauto-mcs.png&f=1&nofb=1&ipt=e373227498fcc70ebb1dd22d7149aa9069804b1f813eff5965983ddeb30f0b1c" alt="Auto-MCS">
+      <h3>Auto MCS</h3>
+      <p>Automated server management, backups, and restarts.</p>
+    </a>
+
+    <a class="card tool-card" href="https://www.spigotmc.org/resources/citizens.13811/" target="_blank">
+      <img src="https://proxy.spigotmc.org/d152c6d30d162d4211e58531376fc40f9109f63c/68747470733a2f2f77696b692e636974697a656e736e7063732e636f2f696d616765732f312f31622f576f72646d61726b2e706e67" alt="Citizens 2">
+      <h3>Citizens 2</h3>
+      <p>Custom NPCs for quests, shops, and storytelling.</p>
+    </a>
+
+    <a class="card tool-card" href="https://modrinth.com/plugin/typewriter" target="_blank">
+      <img src="https://cdn.modrinth.com/data/Vm7B3ymm/27df961b4e8f0d36287aae64a8c9872b090739ee.png" alt="Typewriter">
+      <h3>Typewriter</h3>
+      <p>Cinematic text and dialogue effects for events and lore.</p>
+    </a>
+
   </div>
 </section>
 
@@ -295,23 +356,10 @@
 </footer>
 </div> <!-- end mainPage -->
 
-<!-- History Page -->
-<div id="historyPage" class="history-page">
-  <img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=69893a37&is=6987e8b7&hm=3c9d63bc48ea722bf492000a93af2ec75633a75088fb8f84c0750cecdc99acab&" alt="The Realm SMP Season 4 Map">
-  <span>The Realm SMP Season 4 Map</span>
-  <span>Realm Smp Season 4 was very short lived as it only was a thing for 1 day before toxicity took over the comunity causing the original owner to leave the realm luckly they came back but as head builder we hope to learn from our mistakes on season 4</span>
-  
-  <button onclick="backToMain()">Back</button>
-</div>
-
-<!-- Fidget Spinner -->
-<img id="fidget-spinner" src="https://cdn.discordapp.com/attachments/1270821973781647444/1469827434588274893/IMG_8789.png?ex=698912f8&is=6987c178&hm=743a3c77f10e02426c0c1f6cdbe64c48dd50a10cc480d563371127506fc0aeb2&" alt="fidget spinner">
-
 <script>
-  // Navigation functions
   function showSection(id) {
     document.getElementById('mainPage').style.display = 'block';
-    document.getElementById('historyPage').style.display = 'none';
+    document.getElementById('historyPage')?.style.display = 'none';
     document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
   }
 
@@ -324,28 +372,6 @@
     document.getElementById('historyPage').style.display = 'none';
     document.getElementById('mainPage').style.display = 'block';
   }
-
-  // Fidget spinner logic
-  const spinner = document.getElementById('fidget-spinner');
-  let angle = 0;
-  let velocity = 0;
-  let scale = 1;
-
-  function animate() {
-      if (Math.abs(velocity) > 0.01) {
-          angle += velocity;
-          velocity *= 0.97;
-          spinner.style.transform = `rotate(${angle}deg)`;
-      }
-      requestAnimationFrame(animate);
-  }
-
-  spinner.addEventListener('click', () => {
-      velocity += 20 + Math.random() * 10;
-      scale *= 2;
-  });
-
-  animate();
 </script>
 
 </body>
