@@ -201,6 +201,7 @@
       height: 64px;
       cursor: pointer;
       z-index: 100;
+      transform-origin: center;
     }
 
     @media (max-width: 900px) {
@@ -341,18 +342,20 @@
   const spinner = document.getElementById('fidget-spinner');
   let angle = 0;
   let velocity = 0;
+  let scale = 1;
 
   function animate() {
       if (Math.abs(velocity) > 0.01) {
           angle += velocity;
           velocity *= 0.97;
-          spinner.style.transform = `rotate(${angle}deg)`;
+          spinner.style.transform = `rotate(${angle}deg) scale(${scale})`;
       }
       requestAnimationFrame(animate);
   }
 
   spinner.addEventListener('click', () => {
       velocity += 20 + Math.random() * 10;
+      scale *= 2; // double the size each click
   });
 
   animate();
