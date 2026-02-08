@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<span>The Realm SMP Season 4 Map</span><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -299,6 +299,8 @@
 <div id="historyPage" class="history-page">
   <img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=69893a37&is=6987e8b7&hm=3c9d63bc48ea722bf492000a93af2ec75633a75088fb8f84c0750cecdc99acab&" alt="The Realm SMP Season 4 Map">
   <span>The Realm SMP Season 4 Map</span>
+  <span>Realm Smp Season 4 was very short lived as it only was a thing for 1 day before toxicity took over the comunity causing the original owner to leave the realm luckly they came back but as head builder we hope to learn from our mistakes on season 4</span>
+  
   <button onclick="backToMain()">Back</button>
 </div>
 
@@ -333,7 +335,7 @@
       if (Math.abs(velocity) > 0.01) {
           angle += velocity;
           velocity *= 0.97;
-          spinner.style.transform = `rotate(${angle}deg)`;
+          spinner.style.transform = `rotate(${angle}deg) scale(${scale})`;
       }
       requestAnimationFrame(animate);
   }
