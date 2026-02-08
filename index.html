@@ -335,7 +335,7 @@
       if (Math.abs(velocity) > 0.01) {
           angle += velocity;
           velocity *= 0.97;
-          spinner.style.transform = `rotate(${angle}deg) scale(${scale})`;
+          spinner.style.transform = `rotate(${angle}deg)`;
       }
       requestAnimationFrame(animate);
   }
