@@ -118,7 +118,7 @@
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
   }
 
-  /* Application */
+  /* Application / Calendar */
   .suggestion-card {
     position: relative;
     max-width: 900px;
@@ -209,6 +209,7 @@
       <a onclick="showHistory()">History</a>
       <a onclick="showSection('team')">Team</a>
       <a onclick="showSection('apply')">Apply</a>
+      <a onclick="showSection('calendar')">Calendar</a>
     </div>
   </div>
 </nav>
@@ -253,7 +254,7 @@
     </a>
 
     <a class="card tool-card" href="https://papermc.io" target="_blank">
-      <img src="https://cdn.discordapp.com/attachments/1465553426640273594/1470111075427946648/papermc-logo-270F7CE4FA-seeklogo.com-2305263855-removebg-preview.png?ex=698f6121&is=698e0fa1&hm=769d01792157eb91ef3e9b7e254aa39832b25f14e7151c4c5f92165de7397758&" alt="Paper">
+      <img src="https://cdn.discordapp.com/attachments/1465553426640273594/1470111075427946648/papermc-logo-270F7CE4FA-seeklogo.com-2305263855-removebg-preview.png?ex=6990b2a1&is=698f6121&hm=812d027989fde0f3d41e2b42af831894bc0615e8cc4ce5abd5fc9acd99bb2a14&" alt="Paper">
       <h3>Paper</h3>
       <p>Spigot-based Minecraft server software we use to run The Realm.</p>
     </a>
@@ -356,11 +357,25 @@
   </div>
 </section>
 
+<!-- Calendar Section -->
+<section id="calendar">
+  <h2>Events Calendar</h2>
+  <p>Check out upcoming events and SMP happenings:</p>
+  <div class="suggestion-card">
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?src=fbf77f511664cad07b048c6a122f74c21c06efb9c881d91705ecccc8bd289258%40group.calendar.google.com&ctz=America%2FChicago" 
+      style="border: 0" 
+      frameborder="0" 
+      scrolling="no">
+    </iframe>
+  </div>
+</section>
+
 </div> <!-- end main-content -->
+
 <footer>
   <p>The Realm ⸊ဂဗ 2026 · All cats reserved</p>
 </footer>
-</div> <!-- end mainPage -->
 
 <!-- History Page -->
 <div id="historyPage" class="history-page">
@@ -371,8 +386,9 @@
   <button onclick="backToMain()">Back</button>
 </div>
 
+
 <!-- Fidget Spinner -->
-<img id="fidget-spinner" src="https://cdn.discordapp.com/attachments/1270821973781647444/1469827434588274893/IMG_8789.png?ex=698912f8&is=6987c178&hm=743a3c77f10e02426c0c1f6cdbe64c48dd50a10cc480d563371127506fc0aeb2&" alt="fidget spinner">
+<img id="fidget-spinner" src="https://cdn.discordapp.com/attachments/1465553426640273594/1469827512585556078/IMG_8789.png?ex=6990fc0b&is=698faa8b&hm=274299ca034cfaf349ed4ca290f1e411c85cb4f6712cea948a7b773269df23f3&" alt="fidget spinner">
 
 <script>
   // Navigation functions
