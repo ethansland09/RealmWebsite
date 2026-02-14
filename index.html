@@ -2,114 +2,68 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Realm</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0}
 
-  body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background:
-      linear-gradient(rgba(11,13,18,0.85), rgba(11,13,18,0.85)),
-      url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=6988a747&is=698755c7&hm=17db39b3539bfbb34a00f20d75bf3fb54b3bad38de431a5e10da9725fcb284f5&")
-      center / cover no-repeat fixed;
-    color: #eef0ff;
-    overflow-x: hidden;
-  }
+body{
+font-family:'Inter',system-ui;
+background:
+linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)),
+url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=69913907&is=698fe787&hm=703b40e0f45dca1b3bd168f8bf5136eb94c59823f4a7b908e8eb74d7c0162b5f&") center/cover no-repeat fixed;
+color:#eef0ff;
+overflow-x:hidden;
+}
 
-  a { color: inherit; text-decoration: none; cursor: pointer; }
+a{color:inherit;text-decoration:none;cursor:pointer}
 
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(11,13,18,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+nav{
+position:sticky;
+top:0;
+z-index:10;
+background:rgba(11,13,18,.85);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
 
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.nav-inner{
+max-width:1200px;
+margin:auto;
+padding:16px 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
 
-  .nav-title { font-weight: 800; letter-spacing: 0.3px; }
-  .nav-links { display: flex; gap: 20px; font-weight: 500; color: #cfd3ff; }
+.nav-title{font-weight:800}
+.nav-links{display:flex;gap:20px;color:#cfd3ff}
 
-  .page { display: block; }
-  .hidden { display: none; }
+section{
+max-width:1200px;
+margin:auto;
+padding:96px 24px;
+}
 
-  section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 96px 24px;
-  }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:40px;
+}
 
-  section h2 { font-size: 2.2rem; margin-bottom: 16px; }
-  section p { color: #cfd3ff; max-width: 760px; }
+.card{
+background:#111420;
+border:1px solid rgba(255,255,255,.06);
+border-radius:20px;
+padding:28px;
+text-align:center;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
-    margin-top: 40px;
-  }
-
-  .card {
-    background: #111420;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 20px;
-    padding: 28px;
-    text-align: center;
-  }
-
-  /* Team */
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 28px;
-    margin-top: 48px;
-  }
-
-  .member { position: relative; text-align: center; }
-
-  .member img.head {
-    width: 96px;
-    height: 96px;
-    border-radius: 16px;
-    image-rendering: pixelated;
-    background: #000;
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .body-render {
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 128px;
-    image-rendering: pixelated;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.7));
-    z-index: 3;
-  }
-
-  .member:hover .body-render { opacity: 1; }
-  .member strong { display: block; margin-top: 4px; }
-  .role { margin-top: 2px; color: #9aa0ff; font-size: 0.9rem; }
-
-  /* Tools */
+/* Tools */
   .tool-card img {
     width: 72px;
     height: 72px;
@@ -118,127 +72,147 @@
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
   }
 
-  /* Application / Calendar */
-  .suggestion-card {
-    position: relative;
-    max-width: 900px;
-    margin-top: 40px;
-    background: linear-gradient(180deg, rgba(122,124,255,0.1), rgba(122,124,255,0.02));
-    border: 1px solid rgba(122,124,255,0.35);
-    border-radius: 24px;
-    overflow: hidden;
-  }
+/* TEAM */
 
-  iframe { width: 100%; height: 900px; border: none; }
-  .iframe-link { position: absolute; inset: 0; z-index: 2; }
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:28px;
+margin-top:48px;
+}
 
-  footer {
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 48px 24px;
-    text-align: center;
-    color: #b8bdff;
-  }
+.member{position:relative;text-align:center}
 
-  #fidget-spinner {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 64px;
-    height: 64px;
-    cursor: pointer;
-    z-index: 100;
-    transform-origin: center;
-  }
+.member img.head{
+width:96px;height:96px;border-radius:16px;
+image-rendering:pixelated;background:#000;margin-bottom:12px;z-index:2;
+}
 
-  /* History page */
-  .history-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(11,13,18,0.95);
-    overflow-y: auto;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 80px 24px;
-    z-index: 200;
-  }
+.body-render{
+position:absolute;
+bottom:110%;
+left:50%;
+transform:translateX(-50%);
+width:128px;
+image-rendering:pixelated;
+opacity:0;
+transition:.2s;
+}
 
-  .history-page img {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 16px;
-    border: 2px solid rgba(255,255,255,0.2);
-    object-fit: cover;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
-  }
+.member:hover .body-render{opacity:1}
 
-  .history-page span {
-    color: #9aa0ff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-top: 16px;
-  }
+.role{color:#9aa0ff;font-size:.9rem}
 
-  .history-page button {
-    margin-top: 24px;
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+/* APPLY */
 
-  @media (max-width: 900px) { .body-render { display: none; } }
+.suggestion-card{
+position:relative;
+max-width:900px;
+margin-top:40px;
+border-radius:24px;
+overflow:hidden;
+border:1px solid rgba(122,124,255,.35);
+}
+
+iframe{width:100%;height:900px;border:none}
+.iframe-link{position:absolute;inset:0;z-index:2}
+
+/* ===== FIXED HISTORY PANEL ===== */
+
+.history-page{
+position:fixed;
+inset:0;
+background:rgba(10,12,18,.98);
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:80px 24px 60px;
+overflow-y:auto;
+z-index:500;
+
+opacity:0;
+pointer-events:none;
+transition:.25s;
+}
+
+.history-page.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.history-content{
+max-width:1000px;
+width:100%;
+text-align:center;
+}
+
+.history-content img{
+width:100%;
+border-radius:18px;
+margin:30px 0;
+}
+
+.history-close{
+position:fixed;
+top:20px;
+right:25px;
+background:#15192a;
+padding:10px 16px;
+border-radius:12px;
+cursor:pointer;
+font-size:22px;
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,.06);
+padding:48px;
+text-align:center;
+color:#b8bdff;
+}
+
+/* spinner */
+
+#fidget-spinner{
+position:fixed;
+bottom:24px;
+right:24px;
+width:64px;
+cursor:pointer;
+z-index:100;
+}
 </style>
 </head>
 
 <body>
 
-<!-- Main Page -->
-<div id="mainPage" class="page">
-
 <nav>
-  <div class="nav-inner">
-    <div class="nav-title">The Realm</div>
-    <div class="nav-links">
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('features')">Features</a>
-      <a onclick="showSection('tools')">Tools</a>
-      <a onclick="showHistory()">History</a>
-      <a onclick="showSection('team')">Team</a>
-      <a onclick="showSection('apply')">Apply</a>
-      <a onclick="showSection('calendar')">Calendar</a>
-    </div>
-  </div>
+<div class="nav-inner">
+<div class="nav-title">The Realm</div>
+<div class="nav-links">
+<a onclick="scrollToSection('about')">About</a>
+<a onclick="scrollToSection('features')">Features</a>
+<a onclick="openHistory()">History</a>
+<a onclick="scrollToSection('team')">Team</a>
+<a onclick="scrollToSection('apply')">Apply</a>
+<a onclick="scrollToSection('calendar')">Calendar</a>
+</div>
+</div>
 </nav>
 
-<div class="main-content">
-
-<!-- About Section -->
+<!-- ABOUT -->
 <section id="about">
-  <h2>About The Realm</h2>
-  <p>Some rushed resets. chaos. SMP built for long-term play and meaningful stories.</p>
+<h2>About The Realm</h2>
+<p>Some rushed resets. chaos. SMP built for long-term play and meaningful stories.</p>
 </section>
 
-<!-- Features Section -->
+<!-- FEATURES -->
 <section id="features">
-  <h2>Why Join?</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Custom World</h3>
-      <p>A Experince Worth Trying out.</p>
-    </div>
-    <div class="card">
-      <h3>Active Community</h3>
-      <p>Players who do suprisingly better at government then some politicians.</p>
-    </div>
-    <div class="card">
-      <h3>Fair Play</h3>
-      <p>No Advantages for one team most of the time.</p>
-    </div>
-  </div>
+<h2>Why Join?</h2>
+<div class="grid">
+<div class="card"><h3>Custom World</h3><p>A Experince Worth Trying out.</p></div>
+<div class="card"><h3>Active Community</h3><p>Players who do suprisingly better at government then some politicians.</p></div>
+<div class="card"><h3>Fair Play</h3><p>No Advantages for one team most of the time.</p></div>
+</div>
 </section>
 
 <!-- Tools Section -->
@@ -298,135 +272,126 @@
   </div>
 </section>
 
-<!-- Team Section -->
+<!-- TEAM -->
 <section id="team">
-  <h2>The Team</h2>
-  <div class="team-grid">
+<h2>The Team</h2>
+<div class="team-grid">
 
-    <div class="member">
-      <a href="https://namemc.com/profile/ethanmeister14" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=e82e7bebf56a58eb&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=8">
-      </a>
-      <strong>ethanmeister14</strong>
-      <div class="role">Owner & Developer</div>
-    </div>
-
-    <div class="member">
-      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=2f5896589820861a&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=8">
-      </a>
-      <strong>BigtimeSmall</strong>
-      <div class="role">Developer</div>
-    </div>
-
-    <div class="member">
-      <a href="https://namemc.com/profile/MrBubble321" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=59b1a18f43a2ca78&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=8">
-      </a>
-      <strong>MrBubble321</strong>
-      <div class="role">Developer</div>
-    </div>
-
-    <div class="member">
-      <a href="https://namemc.com/profile/GDarkz.1" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=a7abf1490543dbb0&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=8">
-      </a>
-      <strong>GDarkz</strong>
-      <div class="role">Head Builder</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Apply Section -->
-<section id="apply">
-  <h2>Apply to Join The Realm</h2>
-  <p>Click anywhere below to open the application.</p>
-  <div class="suggestion-card">
-    <a class="iframe-link"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform"
-      target="_blank"></a>
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform?embedded=true"
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-<!-- Calendar Section -->
-<section id="calendar">
-  <h2>Events Calendar</h2>
-  <p>Check out upcoming events and SMP happenings:</p>
-  <div class="suggestion-card">
-    <iframe 
-      src="https://calendar.google.com/calendar/embed?src=fbf77f511664cad07b048c6a122f74c21c06efb9c881d91705ecccc8bd289258%40group.calendar.google.com&ctz=America%2FChicago" 
-      style="border: 0" 
-      frameborder="0" 
-      scrolling="no">
-    </iframe>
-  </div>
-</section>
-
-</div> <!-- end main-content -->
-
-<footer>
-  <p>The Realm ⸊ဂဗ 2026 · All cats reserved</p>
-</footer>
-
-<!-- History Page -->
-<div id="historyPage" class="history-page">
-  <img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=69893a37&is=6987e8b7&hm=3c9d63bc48ea722bf492000a93af2ec75633a75088fb8f84c0750cecdc99acab&" alt="The Realm SMP Season 4 Map">
-  <span>The Realm SMP Season 4 Map</span>
-  <span>Realm Smp Season 4 was very short lived as it only was a thing for 1 day before toxicity took over the comunity causing the original owner to leave the realm luckly they came back but as head builder we hope to learn from our mistakes on season 4</span>
-  
-  <button onclick="backToMain()">Back</button>
+<div class="member">
+<img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=e82e7bebf56a58eb&scale=8">
+<img class="head" src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=8">
+<strong>ethanmeister14</strong>
+<div class="role">Owner & Developer</div>
 </div>
- 
-<!-- Fidget Spinner -->
-<img id="fidget-spinner" src="https://cdn.discordapp.com/attachments/1465553426640273594/1469827512585556078/IMG_8789.png?ex=6990fc0b&is=698faa8b&hm=274299ca034cfaf349ed4ca290f1e411c85cb4f6712cea948a7b773269df23f3&" alt="fidget spinner">
+
+<div class="member">
+<img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=2f5896589820861a&scale=8">
+<img class="head" src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=8">
+<strong>BigtimeSmall</strong>
+<div class="role">Developer</div>
+</div>
+
+<div class="member">
+<img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=59b1a18f43a2ca78&scale=8">
+<img class="head" src="https://s.namemc.com/2d/skin/face.png?id=59b1a18f43a2ca78&scale=8">
+<strong>MrBubble321</strong>
+<div class="role">Developer</div>
+</div>
+
+<div class="member">
+<img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=a7abf1490543dbb0&scale=8">
+<img class="head" src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=8">
+<strong>GDarkz</strong>
+<div class="role">Head Builder</div>
+</div>
+
+</div>
+</section>
+
+<!-- APPLY -->
+<section id="apply">
+<h2>Apply to Join The Realm</h2>
+<p>Click anywhere below to open the application.</p>
+<div class="suggestion-card">
+<a class="iframe-link"
+href="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform"
+target="_blank"></a>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform?embedded=true"></iframe>
+</div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+<h2>Events Calendar</h2>
+<p>Check out upcoming events and SMP happenings:</p>
+<div class="suggestion-card">
+<iframe src="https://calendar.google.com/calendar/embed?src=fbf77f511664cad07b048c6a122f74c21c06efb9c881d91705ecccc8bd289258%40group.calendar.google.com&ctz=America%2FChicago" style="border:0" frameborder="0" scrolling="no"></iframe>
+</div>
+</section>
+
+<footer>The Realm ⸊ဂဗ 2026 · All cats reserved</footer>
+
+<!-- HISTORY PANEL -->
+<div id="historyPage" class="history-page">
+
+<div class="history-close" onclick="closeHistory()">✕</div>
+
+<div class="history-content">
+<h2>Realm History</h2>
+
+<img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=6991cbf7&is=69907a77&hm=260997dafe1d9fea04906eebd788856dc1906056e264dd42f7a6382ed91c469b&">
+
+<p>
+Realm Smp Season 4 took a month to make and only lasted a day due to toxicity. Because of that the Original Owner left and only barely came back as Head Builder, we will not do this again if the same thing happens in Season 5.
+</p>
+
+</div>
+</div>
+
+<!-- spinner -->
+<img id="fidget-spinner"
+src="https://cdn.discordapp.com/attachments/1465553426640273594/1469827512585556078/IMG_8789.png?ex=6991a4cb&is=6990534b&hm=8e5c2d36a77ba9fe7841fd4f44363605e7419c21a7b70891761b6b74ca4af5c4&">
 
 <script>
-  // Navigation functions
-  function showSection(id) {
-    document.getElementById('mainPage').style.display = 'block';
-    document.getElementById('historyPage').style.display = 'none';
-    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
-  }
 
-  function showHistory() {
-    document.getElementById('mainPage').style.display = 'none';
-    document.getElementById('historyPage').style.display = 'flex';
-  }
+/* smooth scroll */
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 
-  function backToMain() {
-    document.getElementById('historyPage').style.display = 'none';
-    document.getElementById('mainPage').style.display = 'block';
-  }
+/* HISTORY SYSTEM */
 
-  // Fidget spinner logic
-  const spinner = document.getElementById('fidget-spinner');
-  let angle = 0;
-  let velocity = 0;
+function openHistory(){
+document.getElementById("historyPage").classList.add("active");
+document.body.style.overflow="hidden";
+}
 
-  function animate() {
-      if (Math.abs(velocity) > 0.01) {
-          angle += velocity;
-          velocity *= 0.97;
-          spinner.style.transform = `rotate(${angle}deg)`;
-      }
-      requestAnimationFrame(animate);
-  }
+function closeHistory(){
+document.getElementById("historyPage").classList.remove("active");
+document.body.style.overflow="";
+}
 
-  spinner.addEventListener('click', () => {
-      velocity += 20 + Math.random() * 10;
-  });
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape") closeHistory();
+});
 
-  animate();
+/* spinner */
+
+const spinner=document.getElementById('fidget-spinner');
+let angle=0,velocity=0;
+
+function animate(){
+if(Math.abs(velocity)>0.01){
+angle+=velocity;
+velocity*=0.97;
+spinner.style.transform=`rotate(${angle}deg)`;
+}
+requestAnimationFrame(animate);
+}
+
+spinner.onclick=()=>velocity+=25+Math.random()*10;
+animate();
+
 </script>
-
 </body>
 </html>
