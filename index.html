@@ -1,454 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Realm</title>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-label">Commission Inquiry</span>
+    <h2>Acquire Your <em>Vessel</em></h2>
+    <div class="section-rule"><span class="section-rule-gem">◆</span></div>
+  </div>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <div class="contact-layout">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+    <div class="contact-info reveal">
+      <h3>Open Negotiations</h3>
+      <p>
+        Every NoTerra vessel is handcrafted for prestige, dominance, and
+        aerial supremacy. Send your commission request below and our
+        corporation will review your proposal.
+      </p>
 
-body{
-font-family:'Inter',system-ui;
-background:
-linear-gradient(rgba(11,13,18,0.85),rgba(11,13,18,0.85)),
-url("https://cdn.discordapp.com/attachments/1465553426640273594/1467356279826813009/image.jpg?ex=69933347&is=6991e1c7&hm=25e22cf619975ccd198bd3bd2c8b973c37d08a9f9c68818591c3c0e6f4c2e4c4&") center/cover no-repeat fixed;
-color:#eef0ff;
-overflow-x:hidden;
-}
+      <div class="contact-detail">
+        <div class="contact-detail-item">
+          <span class="contact-detail-icon">✦</span>
+          <span class="contact-detail-text">Prices Negotiable</span>
+        </div>
 
-a{color:inherit;text-decoration:none;cursor:pointer}
+        <div class="contact-detail-item">
+          <span class="contact-detail-icon">✦</span>
+          <span class="contact-detail-text">Custom Designs Available</span>
+        </div>
 
-nav{
-position:sticky;
-top:0;
-z-index:10;
-background:rgba(11,13,18,.85);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,.06);
-}
+        <div class="contact-detail-item">
+          <span class="contact-detail-icon">✦</span>
+          <span class="contact-detail-text">Create Aeronautics Certified</span>
+        </div>
+      </div>
+    </div>
 
-.nav-inner{
-max-width:1200px;
-margin:auto;
-padding:16px 24px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
+    <div class="reveal">
+      <div class="deco-corner-box">
 
-.nav-title{font-weight:800}
-.nav-links{display:flex;gap:20px;color:#cfd3ff}
+        <form
+          action="https://formsubmit.co/ethan.sloss09@gmail.com"
+          method="POST"
+          class="order-form"
+        >
 
-section{
-max-width:1200px;
-margin:auto;
-padding:96px 24px;
-}
+          <!-- FormSubmit Settings -->
+          <input type="hidden" name="_subject" value="New NoTerra Airship Commission Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
-margin-top:40px;
-}
+          <div class="form-group">
+            <label class="form-label">Your Minecraft Username</label>
+            <input
+              type="text"
+              name="Minecraft Username"
+              class="form-input"
+              placeholder="xX_YourName_Xx"
+              required
+            >
+          </div>
 
-.card{
-background:#111420;
-border:1px solid rgba(255,255,255,.06);
-border-radius:20px;
-padding:28px;
-text-align:center;
-}
+          <div class="form-group">
+            <label class="form-label">Desired Vessel</label>
+            <select
+              name="Desired Vessel"
+              class="form-select"
+              required
+            >
+              <option value="">— Select a Model —</option>
+              <option>The Destroyer — 2,000 Diamonds (Negotiable)</option>
+              <option>The Carrier — 3,000 Diamonds (Negotiable)</option>
+              <option>The Cruise Liner — 6,000 Diamonds (Negotiable)</option>
+              <option>Custom Commission — Contact for Pricing</option>
+            </select>
+          </div>
 
-/* Tools */
-  .tool-card img {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    margin-bottom: 14px;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
-  }
+          <div class="form-group">
+            <label class="form-label">Your Offer (Diamonds)</label>
+            <input
+              type="text"
+              name="Offer"
+              class="form-input"
+              placeholder="e.g. 2,500 diamonds"
+            >
+          </div>
 
-/* TEAM */
+          <div class="form-group">
+            <label class="form-label">Special Requirements</label>
+            <textarea
+              name="Special Requirements"
+              class="form-textarea"
+              placeholder="Describe any custom features, colour variations, or special fittings..."
+            ></textarea>
+          </div>
 
-.team-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:28px;
-margin-top:48px;
-}
+          <div class="form-submit">
+            <button
+              type="submit"
+              class="btn-primary"
+              style="width:100%;padding:1.1rem;"
+            >
+              Submit Commission Request
+            </button>
+          </div>
 
-.member{
-position:relative;
-text-align:center;
-display:flex;
-flex-direction:column;
-align-items:center;
-}
+        </form>
 
-/* clickable skin container */
-.member a{
-display:inline-block;
-position:relative;
-}
-
-/* head */
-.member img.head{
-width:96px;
-height:96px;
-border-radius:16px;
-image-rendering:pixelated;
-background:#000;
-margin-bottom:10px;
-display:block;
-}
-
-/* floating body render */
-.body-render{
-position:absolute;
-bottom:110%;
-left:50%;
-transform:translateX(-50%);
-width:128px;
-image-rendering:pixelated;
-opacity:0;
-transition:opacity .2s ease;
-pointer-events:none;
-}
-
-.member:hover .body-render{
-opacity:1;
-}
-
-/* username */
-.member strong{
-display:block;
-width:100%;
-text-align:center;
-font-weight:600;
-line-height:1.2;
-}
-
-/* role text */
-.role{
-display:block;
-width:100%;
-text-align:center;
-color:#9aa0ff;
-font-size:.9rem;
-margin-top:3px;
-}
-
-/* APPLY */
-
-.suggestion-card{
-position:relative;
-max-width:900px;
-margin-top:40px;
-border-radius:24px;
-overflow:hidden;
-border:1px solid rgba(122,124,255,.35);
-}
-
-iframe{width:100%;height:900px;border:none}
-.iframe-link{position:absolute;inset:0;z-index:2}
-
-/* ===== FIXED HISTORY PANEL ===== */
-
-.history-page{
-position:fixed;
-inset:0;
-background:rgba(10,12,18,.98);
-display:flex;
-flex-direction:column;
-align-items:center;
-padding:80px 24px 60px;
-overflow-y:auto;
-z-index:500;
-
-opacity:0;
-pointer-events:none;
-transition:.25s;
-}
-
-.history-page.active{
-opacity:1;
-pointer-events:auto;
-}
-
-.history-content{
-max-width:1000px;
-width:100%;
-text-align:center;
-}
-
-.history-content img{
-width:100%;
-border-radius:18px;
-margin:30px 0;
-}
-
-.history-close{
-position:fixed;
-top:20px;
-right:25px;
-background:#15192a;
-padding:10px 16px;
-border-radius:12px;
-cursor:pointer;
-font-size:22px;
-}
-
-footer{
-border-top:1px solid rgba(255,255,255,.06);
-padding:48px;
-text-align:center;
-color:#b8bdff;
-}
-
-/* spinner */
-
-#fidget-spinner{
-position:fixed;
-bottom:24px;
-right:24px;
-width:64px;
-cursor:pointer;
-z-index:100;
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="nav-inner">
-<div class="nav-title">The Realm</div>
-<div class="nav-links">
-<a onclick="scrollToSection('interviews')">Interviews</a>
-<a onclick="scrollToSection('about')">About</a>
-<a onclick="scrollToSection('features')">Features</a>
-<a onclick="openHistory()">History</a>
-<a onclick="scrollToSection('team')">Team</a>
-<a onclick="scrollToSection('apply')">Apply</a>
-<a onclick="scrollToSection('apply2')">Content</a>
-<a onclick="scrollToSection('calendar')">Calendar</a>
-</div>
-</div>
-</nav>
-
-<!-- ABOUT -->
-<section id="about">
-<h2>About The Realm</h2>
-<p>Some rushed resets. chaos. SMP built for long-term play and meaningful stories.</p>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-<h2>Why Join?</h2>
-<div class="grid">
-<div class="card"><h3>Custom World</h3><p>A Experince Worth Trying out.</p></div>
-<div class="card"><h3>Active Community</h3><p>Players who do suprisingly better at government then some politicians.</p></div>
-<div class="card"><h3>Fair Play</h3><p>No Advantages for one team most of the time.</p></div>
-</div>
-</section>
-
-<!-- Tools Section -->
-<section id="tools">
-  <h2>Server Tools</h2>
-  <p>These are the core tools we use to run The Realm SMP:</p>
-  <div class="grid">
-
-    <a class="card tool-card" href="https://modrinth.com/mod/axiom" target="_blank">
-      <img src="https://cdn.modrinth.com/data/N6n5dqoA/dd175669d5ac228dc00453d13528ad26c1f056ac.png" alt="Axiom">
-      <h3>Axiom</h3>
-      <p>Axiom is used for The Realm's Terrain.</p>
-    </a>
-
-    <a class="card tool-card" href="https://modrinth.com/plugin/geyser" target="_blank">
-      <img src="https://cdn.modrinth.com/data/wKkoqHrH/6e8e781d5669ecef9e19a73b5c2eed060d6f73e7_96.webp" alt="Geyser">
-      <h3>Geyser</h3>
-      <p>Allows Bedrock and Java players to play together on The Realm.</p>
-    </a>
-
-    <a class="card tool-card" href="https://modrinth.com/mod/distanthorizons" target="_blank">
-      <img src="https://cdn.modrinth.com/data/uCdwusMi/e716cda9bb568b5373ff76e363fb4c6d7278fba6_96.webp" alt="Distant Horizons">
-      <h3>Distant Horizons</h3>
-      <p>Extended render distances without performance loss.</p>
-    </a>
-
-    <a class="card tool-card" href="https://www.lunarclient.com/" target="_blank">
-      <img src="data:image/webp;base64,UklGRrYEAABXRUJQVlA4WAoAAAAQAAAAfwAAdAAAQUxQSEoEAAABoFRbT55ti4RIQAISkIAEJCABCZWAhEqIhEpAQobf7Bo8LeHvfr9pREwAbeyyKP62OzH93ijor+HHeIG98g/hC0M1/4ykGP2En+AFMysfjy9M1ny4pJj/hIN5wZqVD8UXltV8pKiwP1cOIZTaTMATjuMEZi2Ovn1VC3DxUbjArIWp31UTNB0kNpirI3sQCyD+EE5glkBjU7MAFx+AC8wt0XAuaoGm7WKDVQvTTFctgPitnMBcHc0OYgEu3oYLzBLImp2NKDULNG0SG6wtkf3OI4iLGgDxGziBVQuT2SU8cQSRqxbg4sW4wFwd2f0NQCuPIApigaalYoNVAg1ulcanZgDEL+ME1pao28eeGicQFzUAF69RYNXC1BsEXYFnELlqgaYFQoO1OuoNAjRaOYgBED/J3bBKoF6+ACAvRZSaASg8oyiMLVF3VPx1ixEXNaDFYe6BUQtT94XXh9Z31QDcPMYrjNVRNz94LxsQBTHg4RFe0S+B+r3iM2xBlFofHrY5RXdLZPSKb9qVi3bhsT3o1cJk9IpvWYm5i8jVLlyWjF5xZPWKzmulGA1EofXA97H2VDKzoresVKuJ+OmRvozOSmZ+0B3WCZfqFSzETwdCV+u4yV6xB2cBJLOFuHXUHo9vZVuEkTv8JCK6bxoZOrQndyQys1qo8+ZpKQ2h+gXfcX81+su5p2Ic0jTnxriO3CFf10uSjoBxEfe04c9X6Whf4U8QJPcho8LVAOidtihftQPfRMRVAYh/iRjFsTbond0W4UsGNHq9lOldBoQXIvK4aFOeIW+h0nvADNK4Cy1A8aOOyB2VDvbJGFk6uM/lI6Uh0mHM95HuITqG04PsDoSxfoSrDdA7HCcMyiOIqDZaeJ0y6B4UrxPJIPAY9ifSUWnMXN4Go5/l/LVLGAa/Wn6OU1cTuE3SOLi1GEiblAl1rQQInwZ+GU5V8VeyP4uMSwYv6GzpKMijuBmIONYG4M6Oeo+gblCCtxCRByoZlwlT8IyJgjvYSBFPhGtAxqsmUwVv4iYh2YijQCLZk9AmNAvRRpTgaSDnbZ5Z6gew0pLr1FlQb6N0ljQNmmyLruPmAfls1BbAzUe7VkALJ/NLABefi9oa0HSg6y0vArR0nBZeWFcBWuYpjlfzuF6orAPgTjzIJdHlMp431pUASAlscPF6ABRaK14K3MkREZXFXkXK6yWC98ZLZXzfjojbBiMTLUUcqwJ3dvQ3nkBoMSLKeOj73k/dBh5XB7ftEm1ALXaQ363SFpW6014P78F9dO2kTHuY6z7q6QxUd1FPp6C6h3paRaSUUmLwEyjv8DANDiGVUqpcHWtGXa4yHdY9a2mmRcvS8t9C7Sqr4n8/9covobE/KvQ+vyR04n9/GHqwMJKGHozGhoEHC/Y/+On/BmWqHKFM/TO3HIG2/kU4/r9Pmd6mlenz5ss0Ov5PSyIiOk3++kMVrBsOlWRdvxJWUDggRgAAAHAGAJ0BKoAAdQA+kUihTKWkIyIgiACwEglpbuF0kABPbYi8QVHPbEXiCo57Yi8QVHPbEXiCo57Yi8QTYAD+/0X4AAAAAAA=">
-      <h3>Lunar Client</h3>
-      <p>Recommended Client to use in The Realm Building for its Waypoints and Minimap.</p>
-    </a>
-
-    <a class="card tool-card" href="https://modrinth.com/mod/flashback" target="_blank">
-      <img src="https://cdn.modrinth.com/data/4das1Fjq/e81c66aacf2e12c09a95e4f971ea5e2b9f608317_96.webp">
-      <h3>Flashback</h3>
-      <p>Used to make cinematics for The Realm.</p>
-    </a>
+      </div>
+    </div>
 
   </div>
 </section>
-
-<!-- Team Section -->
-
-<section id="team">
-  <h2>The Team</h2>
-  <div class="team-grid">
-
-    <div class="member">
-      <a href="https://namemc.com/profile/ethanmeister14" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=e82e7bebf56a58eb&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=8">
-      </a>
-      <strong>ethanmeister14</strong>
-      <div class="role">Owner & Developer</div>
-    </div>
-    
-    <div class="member">
-      <a href="https://namemc.com/profile/BigtimeSmall" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=2f5896589820861a&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=2f5896589820861a&scale=8">
-      </a>
-      <strong>BigtimeSmall</strong>
-      <div class="role">Developer</div>
-    </div>
-
-    <div class="member">
-      <a href="https://namemc.com/profile/GDarkz.1" target="_blank">
-        <img class="body-render" src="https://s.namemc.com/3d/skin/body.png?id=a7abf1490543dbb0&scale=8">
-        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=a7abf1490543dbb0&scale=8">
-      </a>
-      <strong>GDarkz</strong>
-      <div class="role">Head Builder</div>
-    </div>
-  </div>
-</section>
-
-<!-- INTERVIEWS -->
-<section id="interviews">
-<h2>Realm Interviews</h2>
-<p>Watch player interviews The Realm Staff.</p>
-
-<div class="grid">
-
-<div class="card" style="padding:0;overflow:hidden">
-<iframe
-src="https://drive.google.com/file/d/1CgjdyTj4f4zhqiNzwUnR3-Pv0gS9wWoR/preview"
-allow="autoplay"
-style="width:100%;height:420px;border:none">
-</iframe>
-
-<div style="padding:18px">
-<h3>First Realm Interview</h3>
-<p>The first recorded Realm interview.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- APPLY -->
-<section id="apply">
-<h2>Apply to Join The Realm</h2>
-<p>Click anywhere below to open the application.</p>
-<div class="suggestion-card">
-<a class="iframe-link"
-href="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform"
-target="_blank"></a>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPs6jXQ5LWCKo0ZuIDkBM_eY8_Kf_YYmp9q0FZznZ562nweA/viewform?embedded=true"></iframe>
-</div>
-</section>
-
-<!-- APPLYCREATOR -->
-<section id="apply2">
-<h2>Apply to Join The Realm Content Creator Program</h2>
-<p>Click anywhere below to open the application.</p>
-<div class="suggestion-card">
-<a class="iframe-link"
-href="https://docs.google.com/forms/d/e/1FAIpQLScQM7CQ5bgrGuG5RHceXGHqct08wzx3vWoAJu2QPoYvYQ8IXg/viewform?usp=header"
-target="_blank"></a>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQM7CQ5bgrGuG5RHceXGHqct08wzx3vWoAJu2QPoYvYQ8IXg/viewform?embedded=true"></iframe>
-</div>
-</section>
-
-<!-- CALENDAR -->
-<section id="calendar">
-<h2>Events Calendar</h2>
-<p>Check out upcoming events and SMP happenings:</p>
-<div class="suggestion-card">
-<iframe src="https://calendar.google.com/calendar/embed?src=fbf77f511664cad07b048c6a122f74c21c06efb9c881d91705ecccc8bd289258%40group.calendar.google.com&ctz=America%2FChicago" style="border:0" frameborder="0" scrolling="no"></iframe>
-</div>
-</section>
-
-<footer>The Realm ⸊ဂဗ 2026 · All cats reserved</footer>
-
-<!-- HISTORY PANEL -->
-<div id="historyPage" class="history-page">
-
-<div class="history-close" onclick="closeHistory()">✕</div>
-
-<div class="history-content">
-<h2>Realm History</h2>
-
-<img src="https://cdn.discordapp.com/attachments/1270821973781647444/1469869576828223666/screen.jpg?ex=6991cbf7&is=69907a77&hm=260997dafe1d9fea04906eebd788856dc1906056e264dd42f7a6382ed91c469b&">
-
-<p>
-Realm Smp Season 4 took a month to make and only lasted a day due to toxicity. Because of that the Original Owner left and only barely came back as Head Builder, we will not do this again if the same thing happens in Season 5.
-</p>
-
-</div>
-</div>
-
-<!-- spinner -->
-<img id="fidget-spinner"
-src="https://cdn.discordapp.com/attachments/1465553426640273594/1469827512585556078/IMG_8789.png?ex=69939f0b&is=69924d8b&hm=e8397a20151f52dac4dadc939061134af8411b6feef127ac1264c6978e0f4afc&">
-
-<script>
-
-/* smooth scroll */
-function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-/* HISTORY SYSTEM */
-
-function openHistory(){
-document.getElementById("historyPage").classList.add("active");
-document.body.style.overflow="hidden";
-}
-
-function closeHistory(){
-document.getElementById("historyPage").classList.remove("active");
-document.body.style.overflow="";
-}
-
-document.addEventListener("keydown",e=>{
-if(e.key==="Escape") closeHistory();
-});
-
-/* spinner */
-
-const spinner=document.getElementById('fidget-spinner');
-let angle=0,velocity=0;
-
-function animate(){
-if(Math.abs(velocity)>0.01){
-angle+=velocity;
-velocity*=0.97;
-spinner.style.transform=`rotate(${angle}deg)`;
-}
-requestAnimationFrame(animate);
-}
-
-spinner.onclick=()=>velocity+=25+Math.random()*10;
-animate();
-
-</script>
-</body>
-</html>
