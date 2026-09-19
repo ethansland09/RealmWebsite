@@ -9,8 +9,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root{
-  --bg:#07101a;
-  --panel:rgba(13,25,38,.78);
+  --bg:#396592;
+  --panel:rgba(7,18,30,.80);
   --panel2:rgba(19,34,50,.9);
   --line:rgba(255,255,255,.09);
   --text:#f4f8fb;
@@ -22,16 +22,13 @@
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{
-  margin:0;background:
-    radial-gradient(circle at 15% 10%,rgba(67,140,255,.18),transparent 30%),
-    radial-gradient(circle at 85% 25%,rgba(113,223,88,.12),transparent 28%),
-    linear-gradient(180deg,#08121d 0%,#050b12 100%);
+  margin:0;background:#396592;
   color:var(--text);font-family:Inter,system-ui,sans-serif;
 }
 body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
   background-size:42px 42px;
 }
 nav{
@@ -48,7 +45,7 @@ nav{
 .links a:hover{color:white}
 .hero{min-height:780px;display:grid;place-items:center;padding:130px 6% 80px;text-align:center}
 .hero-inner{max-width:980px}
-.logo{width:min(720px,90vw);max-height:330px;object-fit:contain;filter:drop-shadow(0 24px 40px rgba(0,0,0,.42))}
+.logo{width:min(760px,92vw);max-height:300px;object-fit:contain;filter:drop-shadow(0 22px 34px rgba(0,0,0,.38));margin:0 auto 8px;display:block}
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;margin-top:25px;padding:8px 13px;
   border:1px solid rgba(113,223,88,.25);background:rgba(113,223,88,.08);
@@ -123,13 +120,33 @@ footer{padding:35px 6%;border-top:1px solid var(--line);color:#68798a;text-align
   h1{letter-spacing:-2px}.status-card,.staff{grid-template-columns:1fr}.grid{grid-template-columns:1fr}
   .section{padding:70px 20px}.status-top{flex-direction:column}.join h2{font-size:32px}
 }
+
+.staff-card{position:relative;cursor:pointer}
+.staff-card .head-wrap{position:relative;flex:none}
+.skin-preview{
+  position:absolute;z-index:20;left:50%;bottom:calc(100% + 14px);
+  width:190px;height:245px;transform:translate(-50%,10px) scale(.96);
+  opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;
+  background:rgba(7,18,30,.96);border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.skin-preview:after{
+  content:"3D SKIN PREVIEW";position:absolute;left:0;right:0;bottom:10px;
+  text-align:center;font-size:9px;font-weight:800;letter-spacing:1.5px;color:#a9bfd1;
+}
+.skin-preview img{width:175px;height:225px;object-fit:contain;image-rendering:auto}
+.staff-card:hover .skin-preview{opacity:1;transform:translate(-50%,0) scale(1)}
+@media(max-width:760px){
+  .skin-preview{display:none}
+}
 </style>
 </head>
 <body>
 
 <nav>
   <a class="brand" href="#">
-    <img src="minecraft_title.png" alt="Realm SMP logo">
+    <img src="realm_logo.png" alt="Realm SMP logo">
     <span>REALM SMP: REBORN</span>
   </a>
   <div class="links">
@@ -142,7 +159,7 @@ footer{padding:35px 6%;border-top:1px solid var(--line);color:#68798a;text-align
 
 <header class="hero">
   <div class="hero-inner">
-    <img class="logo" src="minecraft_title.png" alt="Realm SMP: Reborn">
+    <img class="logo" src="realm_logo.png" alt="Realm SMP: Reborn">
     <div class="eyebrow"><span id="heroDot" class="dot"></span><span id="heroStatus">CHECKING SERVER</span></div>
     <h1>A new chapter begins.</h1>
     <p class="subtitle">Realm SMP: Reborn is a Minecraft survival world built around community, stories, exploration, and a fresh start.</p>
@@ -202,7 +219,12 @@ footer{padding:35px 6%;border-top:1px solid var(--line);color:#68798a;text-align
   </div>
   <div class="staff">
     <div class="card staff-card">
-      <img class="head" src="https://mc-heads.net/avatar/Gdarcz/180.png" alt="Gdarcz Minecraft head">
+      <div class="head-wrap">
+        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=78fde0361cbbfe8d&scale=4" alt="Gdarcz Minecraft head">
+        <div class="skin-preview">
+          <img src="https://skinrender.dev/render/Gdarcz/body?size=384&pose=wave&bg=transparent" alt="3D Gdarcz Minecraft skin">
+        </div>
+      </div>
       <div>
         <div class="staff-name">Gdarcz</div>
         <div class="role">Head Builder · Co-Owner</div>
@@ -210,7 +232,12 @@ footer{padding:35px 6%;border-top:1px solid var(--line);color:#68798a;text-align
       </div>
     </div>
     <div class="card staff-card">
-      <img class="head" src="https://mc-heads.net/avatar/ethanmeister14/180.png" alt="ethanmeister14 Minecraft head">
+      <div class="head-wrap">
+        <img class="head" src="https://s.namemc.com/2d/skin/face.png?id=e82e7bebf56a58eb&scale=4" alt="ethanmeister14 Minecraft head">
+        <div class="skin-preview">
+          <img src="https://skinrender.dev/render/ethanmeister14/body?size=384&pose=wave&bg=transparent" alt="3D ethanmeister14 Minecraft skin">
+        </div>
+      </div>
       <div>
         <div class="staff-name">ethanmeister14</div>
         <div class="role">Co-Owner</div>
