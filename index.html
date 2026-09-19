@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realm SMP: Reborn</title>
+<meta name="description" content="Realm SMP: Reborn - a Minecraft survival multiplayer server.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#07101a;
+  --panel:rgba(13,25,38,.78);
+  --panel2:rgba(19,34,50,.9);
+  --line:rgba(255,255,255,.09);
+  --text:#f4f8fb;
+  --muted:#91a4b5;
+  --green:#71df58;
+  --cyan:#48c7ff;
+  --blue:#438cff;
+  --shadow:0 24px 80px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;background:
+    radial-gradient(circle at 15% 10%,rgba(67,140,255,.18),transparent 30%),
+    radial-gradient(circle at 85% 25%,rgba(113,223,88,.12),transparent 28%),
+    linear-gradient(180deg,#08121d 0%,#050b12 100%);
+  color:var(--text);font-family:Inter,system-ui,sans-serif;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+nav{
+  position:fixed;z-index:10;top:0;left:0;right:0;height:72px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 6%;
+  background:rgba(5,11,18,.72);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.brand img{width:42px;height:42px;object-fit:cover;border-radius:10px}
+.brand span{letter-spacing:-.5px}
+.links{display:flex;gap:28px}
+.links a{color:#b8c6d3;text-decoration:none;font-size:14px;font-weight:600}
+.links a:hover{color:white}
+.hero{min-height:780px;display:grid;place-items:center;padding:130px 6% 80px;text-align:center}
+.hero-inner{max-width:980px}
+.logo{width:min(720px,90vw);max-height:330px;object-fit:contain;filter:drop-shadow(0 24px 40px rgba(0,0,0,.42))}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;margin-top:25px;padding:8px 13px;
+  border:1px solid rgba(113,223,88,.25);background:rgba(113,223,88,.08);
+  border-radius:999px;color:#a9ef99;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#7d8b98;box-shadow:0 0 12px #7d8b98}
+.dot.online{background:var(--green);box-shadow:0 0 14px var(--green)}
+h1{font-size:clamp(42px,7vw,78px);line-height:.98;margin:22px 0 18px;letter-spacing:-4px}
+.subtitle{font-size:18px;color:var(--muted);max-width:680px;margin:auto;line-height:1.7}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  border:1px solid var(--line);padding:14px 20px;border-radius:12px;text-decoration:none;
+  color:white;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;background:rgba(255,255,255,.045)
+}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.09)}
+.btn.primary{background:linear-gradient(135deg,#53bdff,#3977ff);border:0}
+.section{max-width:1120px;margin:auto;padding:90px 6%}
+.section-head{margin-bottom:28px}
+.kicker{color:#70cfff;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800}
+h2{font-size:38px;letter-spacing:-1.8px;margin:8px 0}
+.section-head p{color:var(--muted);max-width:650px;line-height:1.7}
+.status-card{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:16px;
+}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:22px;
+  padding:28px;box-shadow:var(--shadow);backdrop-filter:blur(18px)
+}
+.status-main{min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
+.status-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.status-title{font-size:25px;font-weight:800}
+.server-address{font-family:ui-monospace,SFMono-Regular,monospace;color:#a9b8c7;margin-top:7px;font-size:14px}
+.live{padding:8px 11px;border-radius:9px;background:rgba(113,223,88,.09);color:#9be98b;font-size:12px;font-weight:800}
+.live.off{background:rgba(255,90,90,.09);color:#ff8d8d}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+.stat{padding:18px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.stat label{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px}
+.stat strong{font-size:27px}
+.players{display:flex;flex-direction:column;gap:10px;max-height:210px;overflow:auto;margin-top:14px}
+.player{display:flex;align-items:center;gap:10px;padding:9px;border-radius:12px;background:rgba(255,255,255,.035)}
+.player img{width:34px;height:34px;image-rendering:pixelated;border-radius:7px}
+.empty{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{min-height:180px}
+.icon{font-size:27px;margin-bottom:20px}
+.feature h3{margin:0 0 8px;font-size:17px}
+.feature p{color:var(--muted);line-height:1.65;font-size:14px;margin:0}
+.staff{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.staff-card{display:flex;align-items:center;gap:20px}
+.head{
+  width:90px;height:90px;border-radius:16px;image-rendering:pixelated;
+  background:rgba(255,255,255,.05);padding:4px;border:1px solid var(--line)
+}
+.staff-name{font-size:20px;font-weight:800}
+.role{color:#7ecfff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;margin-top:5px}
+.staff-card a{color:#8ca1b2;font-size:12px;text-decoration:none;display:inline-block;margin-top:10px}
+.join{
+  text-align:center;padding:65px 30px;
+  background:linear-gradient(135deg,rgba(61,129,255,.18),rgba(113,223,88,.09));
+}
+.join h2{font-size:42px}
+.ip{
+  display:inline-flex;align-items:center;gap:12px;margin:22px 0;padding:16px 20px;
+  border-radius:13px;background:rgba(0,0,0,.28);border:1px solid var(--line);
+  font-family:ui-monospace,SFMono-Regular,monospace;font-size:15px
+}
+.copy{border:0;background:#fff;color:#07101a;padding:9px 12px;border-radius:8px;font-weight:800;cursor:pointer}
+footer{padding:35px 6%;border-top:1px solid var(--line);color:#68798a;text-align:center;font-size:12px}
+@media(max-width:760px){
+  nav{padding:0 20px}.links{display:none}.brand span{font-size:14px}
+  .hero{min-height:700px;padding-top:110px}.logo{max-height:250px}
+  h1{letter-spacing:-2px}.status-card,.staff{grid-template-columns:1fr}.grid{grid-template-columns:1fr}
+  .section{padding:70px 20px}.status-top{flex-direction:column}.join h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#">
+    <img src="minecraft_title.png" alt="Realm SMP logo">
+    <span>REALM SMP: REBORN</span>
+  </a>
+  <div class="links">
+    <a href="#server">Server</a>
+    <a href="#features">Features</a>
+    <a href="#staff">Staff</a>
+    <a href="#join">Join</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img class="logo" src="minecraft_title.png" alt="Realm SMP: Reborn">
+    <div class="eyebrow"><span id="heroDot" class="dot"></span><span id="heroStatus">CHECKING SERVER</span></div>
+    <h1>A new chapter begins.</h1>
+    <p class="subtitle">Realm SMP: Reborn is a Minecraft survival world built around community, stories, exploration, and a fresh start.</p>
+    <div class="actions">
+      <a class="btn primary" href="#join">Join the Realm</a>
+      <button class="btn" onclick="copyIP()">Copy Server IP</button>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="server">
+  <div class="section-head">
+    <div class="kicker">Live server</div>
+    <h2>What is happening right now?</h2>
+    <p>The status panel updates automatically from the Minecraft server. Player names appear when the server makes them available.</p>
+  </div>
+
+  <div class="status-card">
+    <div class="card status-main">
+      <div class="status-top">
+        <div>
+          <div class="status-title">Realm SMP: Reborn</div>
+          <div class="server-address">play.realmsmp.org:25565</div>
+        </div>
+        <div id="liveBadge" class="live">CHECKING</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><label>Players Online</label><strong id="players">--</strong></div>
+        <div class="stat"><label>Capacity</label><strong id="maxPlayers">--</strong></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="status-title">Players online</div>
+      <div id="playerList" class="players"><div class="empty">Loading player list...</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="section-head">
+    <div class="kicker">The experience</div>
+    <h2>Built for a world worth returning to.</h2>
+  </div>
+  <div class="grid">
+    <div class="card feature"><div class="icon">🌎</div><h3>Survival SMP</h3><p>A persistent survival world where players can build, explore, trade, and create their own stories.</p></div>
+    <div class="card feature"><div class="icon">⚒️</div><h3>Player-built world</h3><p>From massive projects to tiny bases, the world grows through the creativity of its community.</p></div>
+    <div class="card feature"><div class="icon">📖</div><h3>New chapter</h3><p>Reborn is a fresh beginning for Realm SMP, giving the community a clean canvas for new adventures.</p></div>
+  </div>
+</section>
+
+<section class="section" id="staff">
+  <div class="section-head">
+    <div class="kicker">The team</div>
+    <h2>Behind the Realm</h2>
+    <p>The people helping shape Realm SMP: Reborn.</p>
+  </div>
+  <div class="staff">
+    <div class="card staff-card">
+      <img class="head" src="https://mc-heads.net/avatar/Gdarcz/180.png" alt="Gdarcz Minecraft head">
+      <div>
+        <div class="staff-name">Gdarcz</div>
+        <div class="role">Head Builder · Co-Owner</div>
+        <a href="https://namemc.com/profile/Gdarcz" target="_blank" rel="noopener">View NameMC profile ↗</a>
+      </div>
+    </div>
+    <div class="card staff-card">
+      <img class="head" src="https://mc-heads.net/avatar/ethanmeister14/180.png" alt="ethanmeister14 Minecraft head">
+      <div>
+        <div class="staff-name">ethanmeister14</div>
+        <div class="role">Co-Owner</div>
+        <a href="https://namemc.com/profile/ethanmeister14" target="_blank" rel="noopener">View NameMC profile ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="join">
+  <div class="card join">
+    <div class="kicker">Ready?</div>
+    <h2>Enter the Realm.</h2>
+    <p class="subtitle">Java Edition server. Add the address to Minecraft and start your next chapter.</p>
+    <div class="ip"><span>play.realmsmp.org</span><button class="copy" onclick="copyIP()">COPY</button></div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Realm SMP: Reborn · Minecraft is a trademark of Mojang Studios.</footer>
+
+<script>
+const SERVER = "play.realmsmp.org:25565";
+const API = "https://api.mcstatus.io/v2/status/java/" + encodeURIComponent(SERVER);
+
+const $ = id => document.getElementById(id);
+
+function setStatus(online){
+  $("liveBadge").textContent = online ? "ONLINE" : "OFFLINE";
+  $("liveBadge").className = "live" + (online ? "" : " off");
+  $("heroStatus").textContent = online ? "SERVER ONLINE" : "SERVER OFFLINE";
+  $("heroDot").className = "dot" + (online ? " online" : "");
+}
+
+async function updateServer(){
+  try{
+    const res = await fetch(API, {cache:"no-store"});
+    if(!res.ok) throw new Error("API request failed");
+    const data = await res.json();
+
+    setStatus(!!data.online);
+
+    if(!data.online){
+      $("players").textContent = "0";
+      $("maxPlayers").textContent = "Offline";
+      $("playerList").innerHTML = '<div class="empty">The server is currently offline.</div>';
+      return;
+    }
+
+    const online = data.players?.online ?? 0;
+    const max = data.players?.max ?? "--";
+    $("players").textContent = online;
+    $("maxPlayers").textContent = max;
+
+    const sample = data.players?.list || [];
+    if(!sample.length){
+      $("playerList").innerHTML = '<div class="empty">No player list was provided by the server.</div>';
+      return;
+    }
+
+    $("playerList").innerHTML = sample.map(p => {
+      const name = typeof p === "string" ? p : (p.name_clean || p.name || "Player");
+      const safe = name.replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+      return `<div class="player"><img src="https://mc-heads.net/avatar/${encodeURIComponent(name)}/68.png" alt=""><span>${safe}</span></div>`;
+    }).join("");
+  }catch(e){
+    setStatus(false);
+    $("players").textContent = "--";
+    $("maxPlayers").textContent = "--";
+    $("playerList").innerHTML = '<div class="empty">Unable to reach the status service right now.</div>';
+  }
+}
+
+async function copyIP(){
+  try{
+    await navigator.clipboard.writeText("play.realmsmp.org");
+    const buttons = document.querySelectorAll(".copy");
+    buttons.forEach(b => { const old=b.textContent; b.textContent="COPIED!"; setTimeout(()=>b.textContent=old,1400); });
+  }catch(e){ prompt("Copy this server address:", "play.realmsmp.org"); }
+}
+
+$("year").textContent = new Date().getFullYear();
+updateServer();
+setInterval(updateServer, 30000);
+</script>
+</body>
+</html>
