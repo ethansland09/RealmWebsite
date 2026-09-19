@@ -41,9 +41,10 @@ body::before{
   content:"";
   position:fixed; inset:0; z-index:-3;
   background:
-    radial-gradient(circle at 12% 9%,rgba(255,255,255,.11),transparent 26%),
-    radial-gradient(circle at 88% 23%,rgba(122,216,255,.13),transparent 29%),
-    linear-gradient(180deg,rgba(57,101,146,1),rgba(53,94,136,1));
+    radial-gradient(circle at 12% 9%,rgba(255,255,255,.16),transparent 24%),
+    radial-gradient(circle at 88% 23%,rgba(122,216,255,.18),transparent 28%),
+    radial-gradient(circle at 50% 82%,rgba(18,52,79,.34),transparent 40%),
+    linear-gradient(180deg,#4775a3 0%,#396592 49%,#315b86 100%);
 }
 body::after{
   content:"";
@@ -75,7 +76,7 @@ button{font:inherit}
   border-radius:18px;
   background:rgba(9,21,34,.68);
   backdrop-filter:blur(20px);
-  box-shadow:0 18px 50px rgba(4,14,24,.18);
+  box-shadow:0 18px 50px rgba(4,14,24,.22),inset 0 1px 0 rgba(255,255,255,.06);
 }
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
 .brand-mark{
@@ -99,10 +100,22 @@ button{font:inherit}
 }
 .nav-cta:hover{background:rgba(255,255,255,.14)}
 
+.announcement{
+  position:relative;z-index:2;margin-top:108px;
+  padding:10px 15px;border:1px solid rgba(255,255,255,.12);border-radius:13px;
+  background:rgba(12,29,45,.26);backdrop-filter:blur(12px);
+  color:#c6dcea;font-size:11px;font-weight:600;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.announcement span{display:inline-flex;align-items:center;gap:8px}
+.announcement strong{color:#fff;font-size:10px;letter-spacing:1.1px;text-transform:uppercase}
+.announcement a{color:#c9efff;font-size:10px;font-weight:800;text-decoration:none;white-space:nowrap}
+.announcement a:hover{color:#fff}
+
 .hero{
-  min-height:920px;
+  min-height:850px;
   display:grid; place-items:center;
-  padding:150px 0 95px;
+  padding:56px 0 95px;
 }
 .hero-grid{
   display:grid; grid-template-columns:1.1fr .9fr; gap:55px; align-items:center;
@@ -135,7 +148,7 @@ button{font:inherit}
   letter-spacing:-4px;
 }
 .hero h1 span{
-  color:#d9f2ff;
+  color:#d9f2ff;text-shadow:0 10px 34px rgba(175,228,255,.2);
 }
 .hero p{
   max-width:620px;
@@ -144,6 +157,9 @@ button{font:inherit}
   font-size:17px;line-height:1.8;
 }
 .hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:31px}
+.hero-assurance{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;color:#bdd4e5;font-size:10px;font-weight:700}
+.hero-assurance span{display:inline-flex;align-items:center;gap:7px}
+.hero-assurance span::before{content:"";width:5px;height:5px;border-radius:50%;background:#94e7a5;box-shadow:0 0 10px rgba(120,229,139,.7)}
 .btn{
   appearance:none;border:1px solid rgba(255,255,255,.17);
   background:rgba(6,18,30,.4);color:#fff;text-decoration:none;
@@ -167,15 +183,16 @@ button{font:inherit}
 }
 .logo-shell{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:450px;
+  min-height:450px;position:relative;
 }
+.logo-shell::before{content:"";position:absolute;width:390px;height:390px;border-radius:50%;background:radial-gradient(circle,rgba(161,223,255,.18),rgba(99,166,212,.04) 45%,transparent 70%);filter:blur(2px)}
 .hero-meta{
   margin-top:24px;width:min(560px,100%);
   display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
 }
 .meta{
   padding:14px;border:1px solid rgba(255,255,255,.12);
-  background:rgba(7,19,31,.3);border-radius:14px;text-align:center;
+  background:linear-gradient(145deg,rgba(14,35,53,.52),rgba(7,19,31,.25));border-radius:14px;text-align:center;
 }
 .meta label{display:block;color:#9fb5c9;font-size:9px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}
 .meta strong{display:block;margin-top:7px;font-size:15px}
@@ -194,8 +211,8 @@ button{font:inherit}
   display:grid;grid-template-columns:1.35fr .65fr;gap:16px;
 }
 .panel{
-  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:var(--shadow);backdrop-filter:blur(18px);
+  background:linear-gradient(145deg,rgba(17,38,57,.76),rgba(8,21,34,.68));border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.045);backdrop-filter:blur(18px);
 }
 .server-panel{padding:27px;min-height:355px}
 .server-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
@@ -237,6 +254,8 @@ button{font:inherit}
 
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .feature-card{padding:25px;min-height:210px}
+.feature-card{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.feature-card:hover{transform:translateY(-7px);border-color:rgba(184,236,255,.28);background:linear-gradient(145deg,rgba(29,59,84,.9),rgba(9,23,37,.77))}
 .feature-icon{
   width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
   background:rgba(168,225,255,.11);border:1px solid rgba(168,225,255,.12);color:#c7eeff
@@ -291,6 +310,8 @@ button{font:inherit}
   padding:30px;
   display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
 }
+.connect{position:relative;overflow:hidden}
+.connect::after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;right:-150px;top:-180px;background:radial-gradient(circle,rgba(123,209,255,.18),transparent 68%);pointer-events:none}
 .connect h3{margin:0;font-family:"Space Grotesk",sans-serif;font-size:26px}
 .connect p{margin:7px 0 0;color:#8ea5b8;font-size:12px;line-height:1.7}
 .ip-box{
@@ -314,7 +335,8 @@ button{font:inherit}
 .mobile-menu{display:none}
 @media(max-width:900px){
   .hero-grid,.dashboard{grid-template-columns:1fr}
-  .hero{min-height:auto;padding-top:145px}
+  .hero{min-height:auto;padding-top:50px}
+  .announcement{margin-top:94px}
   .hero-logo{max-width:650px}
   .logo-shell{min-height:0}
   .nav-links{display:none}
@@ -330,7 +352,8 @@ button{font:inherit}
   .brand-mark{width:38px;height:38px}
   .brand-title{font-size:13px}
   .brand-sub{font-size:8px}
-  .hero{padding-top:120px;padding-bottom:70px}
+  .hero{padding-top:38px;padding-bottom:70px}
+  .announcement{margin-top:82px;font-size:10px}.announcement a{display:none}
   .hero h1{font-size:46px;letter-spacing:-2.5px}
   .hero p{font-size:14px}
   .hero-meta{grid-template-columns:1fr}
@@ -364,12 +387,16 @@ button{font:inherit}
 </div>
 
 <main id="top">
+  <div class="page announcement">
+    <span><strong>Realm SMP: Reborn</strong> A community-built Minecraft server for the next chapter.</span>
+    <a href="#join">GET CONNECTED →</a>
+  </div>
   <section class="hero">
     <div class="page hero-grid">
       <div class="hero-copy">
         <div class="eyebrow"><span id="heartbeat" class="heartbeat"></span><span id="hero-status">CHECKING SERVER</span></div>
         <h1>The next chapter of <span>Realm SMP.</span></h1>
-        <p>A dedicated home for the Realm community. Check the live server, see who is online, meet the team, and jump straight into the world.</p>
+        <p>A dedicated home for the Realm community. See the live server, meet the people shaping the world, and jump straight into the adventure.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#join">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -379,6 +406,9 @@ button{font:inherit}
             <svg viewBox="0 0 24 24" fill="none"><path d="M9 8V6.8A1.8 1.8 0 0 1 10.8 5h7.4A1.8 1.8 0 0 1 20 6.8v7.4a1.8 1.8 0 0 1-1.8 1.8H17M6.8 9h7.4A1.8 1.8 0 0 1 16 10.8v7.4a1.8 1.8 0 0 1-1.8 1.8H6.8A1.8 1.8 0 0 1 5 18.2v-7.4A1.8 1.8 0 0 1 6.8 9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             Copy IP
           </button>
+        </div>
+        <div class="hero-assurance" aria-label="Server highlights">
+          <span>Live server status</span><span>Java Edition</span><span>Community-run</span>
         </div>
       </div>
 
