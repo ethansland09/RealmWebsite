@@ -197,6 +197,38 @@ button{font:inherit}
 .meta label{display:block;color:#9fb5c9;font-size:9px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}
 .meta strong{display:block;margin-top:7px;font-size:15px}
 
+.platform-switch{
+  width:min(560px,100%);margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:9px;
+}
+.platform-card{
+  padding:14px 15px;border-radius:15px;border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(145deg,rgba(7,23,38,.55),rgba(17,48,71,.28));
+  display:flex;align-items:center;gap:11px;
+}
+.platform-icon{
+  width:32px;height:32px;display:grid;place-items:center;border-radius:10px;
+  background:rgba(139,212,255,.14);color:#d8f4ff;font-size:15px;font-weight:900;
+}
+.platform-card strong{display:block;font-size:11px;letter-spacing:.3px}
+.platform-card span{display:block;margin-top:3px;color:#9ab6ca;font:10px ui-monospace,SFMono-Regular,Menlo,monospace}
+
+.world-strip{
+  margin-top:-27px;position:relative;z-index:4;
+  padding:15px 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.world-strip div{padding:3px 13px;border-left:1px solid rgba(255,255,255,.11)}
+.world-strip div:first-child{border-left:0}
+.world-strip strong{display:block;font-size:12px;color:#e8f6ff}
+.world-strip span{display:block;margin-top:4px;color:#94afc2;font-size:10px;line-height:1.35}
+
+.spotlight{padding:50px 0 25px}
+.spotlight-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:16px}
+.spotlight-intro{padding:34px;min-height:280px;background:linear-gradient(155deg,rgba(17,47,71,.87),rgba(8,23,37,.84))}
+.spotlight-intro .section-kicker{color:#bcecff}.spotlight-intro h2{margin:12px 0;font-family:"Space Grotesk",sans-serif;font-size:clamp(30px,3.5vw,45px);line-height:1.04;letter-spacing:-2px}.spotlight-intro p{margin:0;color:#b6cede;font-size:13px;line-height:1.75}
+.spotlight-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.spotlight-item{min-height:130px;padding:21px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}
+.spotlight-item b{display:block;color:#d9f4ff;font-size:13px}.spotlight-item span{display:block;margin-top:8px;color:#91a9bb;font-size:11px;line-height:1.6}
+
 .section{padding:105px 0}
 .section-head{max-width:760px;margin-bottom:34px}
 .section-kicker{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#c4eaff}
@@ -310,6 +342,9 @@ button{font:inherit}
   padding:30px;
   display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
 }
+.join-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;position:relative;z-index:1}
+.join-option{padding:15px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(5,17,28,.18)}
+.join-option label{display:block;color:#a3c7de;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.join-option strong{display:block;margin-top:7px;color:#eff9ff;font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace}.join-option span{display:block;margin-top:5px;color:#8ea8bc;font-size:10px}
 .connect{position:relative;overflow:hidden}
 .connect::after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;right:-150px;top:-180px;background:radial-gradient(circle,rgba(123,209,255,.18),transparent 68%);pointer-events:none}
 .connect h3{margin:0;font-family:"Space Grotesk",sans-serif;font-size:26px}
@@ -342,6 +377,9 @@ button{font:inherit}
   .nav-links{display:none}
   .mobile-menu{display:inline-flex}
   .feature-grid{grid-template-columns:1fr}
+  .world-strip{grid-template-columns:repeat(2,1fr);margin-top:0}
+  .world-strip div:nth-child(3){border-left:0}
+  .spotlight-grid{grid-template-columns:1fr}
   .staff-grid{grid-template-columns:1fr}
   .connect{grid-template-columns:1fr}
   .skin-pop{display:none}
@@ -357,6 +395,9 @@ button{font:inherit}
   .hero h1{font-size:46px;letter-spacing:-2.5px}
   .hero p{font-size:14px}
   .hero-meta{grid-template-columns:1fr}
+  .platform-switch,.join-options{grid-template-columns:1fr}
+  .world-strip{padding:12px}.world-strip div{padding:7px;border-left:0}
+  .spotlight-intro{padding:25px}.spotlight-list{grid-template-columns:1fr}
   .section{padding:78px 0}
   .server-panel,.players-panel,.feature-card,.staff-card,.connect{padding:20px}
   .stats-grid{grid-template-columns:1fr}
@@ -382,7 +423,7 @@ button{font:inherit}
       <a href="#team">Team</a>
       <a href="#join">Join</a>
     </div>
-    <a class="nav-cta" href="#join">play.realmsmp.org</a>
+    <a class="nav-cta" href="#join">Join Realm</a>
   </div>
 </div>
 
@@ -395,8 +436,8 @@ button{font:inherit}
     <div class="page hero-grid">
       <div class="hero-copy">
         <div class="eyebrow"><span id="heartbeat" class="heartbeat"></span><span id="hero-status">CHECKING SERVER</span></div>
-        <h1>The next chapter of <span>Realm SMP.</span></h1>
-        <p>A dedicated home for the Realm community. See the live server, meet the people shaping the world, and jump straight into the adventure.</p>
+        <h1>Your next world is <span>already here.</span></h1>
+        <p>Realm SMP is a shared survival world for the builders, explorers, and friends who make every session worth coming back to.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#join">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -407,18 +448,39 @@ button{font:inherit}
             Copy IP
           </button>
         </div>
-        <div class="hero-assurance" aria-label="Server highlights">
-          <span>Live server status</span><span>Java Edition</span><span>Community-run</span>
-        </div>
+        <div class="hero-assurance" aria-label="Server highlights"><span>Java + Bedrock</span><span>Live server status</span><span>Community-run</span></div>
       </div>
 
       <div class="logo-shell">
         <img class="hero-logo" src="realm_logo.png" alt="Realm SMP: Reborn">
         <div class="hero-meta">
           <div class="meta"><label>Address</label><strong>play.realmsmp.org</strong></div>
-          <div class="meta"><label>Port</label><strong>25565</strong></div>
-          <div class="meta"><label>Edition</label><strong>Java</strong></div>
+          <div class="meta"><label>Platforms</label><strong>Java + Bedrock</strong></div>
+          <div class="meta"><label>Java port</label><strong>25565</strong></div>
         </div>
+        <div class="platform-switch" aria-label="Supported Minecraft editions">
+          <div class="platform-card"><div class="platform-icon">J</div><div><strong>Java Edition</strong><span>play.realmsmp.org:25565</span></div></div>
+          <div class="platform-card"><div class="platform-icon">B</div><div><strong>Bedrock Edition</strong><span>play.realmsmp.org:19132</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page panel world-strip" aria-label="Realm highlights">
+    <div><strong>Java + Bedrock</strong><span>Play together from either edition.</span></div>
+    <div><strong>Shared survival</strong><span>One world, shaped by its players.</span></div>
+    <div><strong>Live status</strong><span>Know what is happening before you join.</span></div>
+    <div><strong>Built for community</strong><span>Find your place and leave your mark.</span></div>
+  </div>
+
+  <section class="spotlight">
+    <div class="page spotlight-grid">
+      <div class="panel spotlight-intro"><div class="section-kicker">Welcome to Realm</div><h2>A server that feels like home.</h2><p>More than a world seed and a server address: Realm is a place to build ambitious projects, discover what other players have made, and make your own story part of the map.</p></div>
+      <div class="panel spotlight-list">
+        <div class="spotlight-item"><b>Start anywhere</b><span>Join on Java or Bedrock with the same familiar Realm address.</span></div>
+        <div class="spotlight-item"><b>Build something lasting</b><span>Make a base, launch a project, or help create a landmark.</span></div>
+        <div class="spotlight-item"><b>Explore together</b><span>Every expedition is better with someone else along for the ride.</span></div>
+        <div class="spotlight-item"><b>Check in live</b><span>See server availability and players before opening Minecraft.</span></div>
       </div>
     </div>
   </section>
@@ -480,7 +542,7 @@ button{font:inherit}
       <div class="section-head">
         <div class="section-kicker">The server</div>
         <h2>Made to feel like a place, not a menu.</h2>
-        <p class="section-lead">Realm SMP: Reborn puts the world and the people in it first. The site stays out of the way and gives the community the information that actually matters.</p>
+        <p class="section-lead">Realm puts the world and the people in it first—then makes it easy to see what is happening and get straight into the game.</p>
       </div>
 
       <div class="feature-grid">
@@ -496,16 +558,16 @@ button{font:inherit}
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7.5 7.5 16.5 16.5M16.5 7.5 7.5 16.5" stroke="currentColor" stroke-width="1.2" opacity=".55"/></svg>
           </div>
-          <h3>Community-first</h3>
-          <p>A server homepage built around the people actually playing, with live status and a clear way into the world.</p>
+          <h3>Play your way</h3>
+          <p>Join the same shared world from Minecraft Java or Bedrock Edition.</p>
         </article>
 
         <article class="panel feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M7 5h12v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3>Always moving</h3>
-          <p>Whether the server is packed or quiet, the site stays current through automatic live status checks.</p>
+          <h3>Always in the loop</h3>
+          <p>Live status gives you a quick read on the Realm before you load in.</p>
         </article>
       </div>
     </div>
@@ -575,11 +637,15 @@ button{font:inherit}
         <div>
           <div class="section-kicker">Ready to play</div>
           <h3>Enter Realm SMP: Reborn.</h3>
-          <p>Open Minecraft Java Edition and add the server address below.</p>
+          <p>Open Minecraft, add Realm to your server list, and choose the setup for your edition.</p>
         </div>
         <div class="ip-box">
           <span class="ip-value">play.realmsmp.org</span>
           <button class="copy-button" onclick="copyIP(this)">COPY IP</button>
+        </div>
+        <div class="join-options">
+          <div class="join-option"><label>Java Edition</label><strong>play.realmsmp.org:25565</strong><span>Multiplayer → Add Server</span></div>
+          <div class="join-option"><label>Bedrock Edition</label><strong>play.realmsmp.org:19132</strong><span>Servers → Add Server</span></div>
         </div>
       </div>
     </div>
