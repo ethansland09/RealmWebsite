@@ -4,9 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#396592">
-<meta name="description" content="Realm SMP: Reborn — the official Minecraft server.">
-<title>Realm SMP: Reborn</title>
+<meta name="description" content="Realm SMP: Reborn is a community Minecraft survival server with Java + Bedrock cross-play, a custom world, live server status, and Discord proximity chat.">
+<meta name="theme-color" content="#162a3d">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Realm SMP: Reborn">
+<meta property="og:description" content="A community Minecraft survival server built for exploration, building, and playing together.">
+<meta property="og:image" content="realm_logo.png">
+<meta property="og:site_name" content="Realm SMP: Reborn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Realm SMP: Reborn">
+<meta name="twitter:description" content="Java + Bedrock Minecraft survival, custom world, live status, and community features.">
+<link rel="icon" href="realm_logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Realm SMP: Reborn | Minecraft Survival Server</title>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Realm SMP: Reborn",
+  "description":"Community Minecraft survival server with Java + Bedrock cross-play.",
+  "url":"https://play.realmsmp.org/"
+}
+</script>
 <style>
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+.skip-link{position:fixed;left:16px;top:10px;z-index:100;padding:10px 14px;border-radius:10px;background:#e3f6ff;color:#0b2237;font-weight:800;font-size:12px;text-decoration:none;transform:translateY(-150%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.feature-card,.head-button,.skin-pop{transition:none}.heartbeat.live{animation:none}}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root{
@@ -266,6 +292,10 @@ button{font:inherit}
 .stat-value{font-size:26px;font-weight:800;margin-top:7px}
 .stat-small{font-size:11px;color:#8fa8bb;margin-top:4px}
 .updated{margin-top:24px;font-size:10px;color:#7891a7}
+.status-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.refresh-button{background:rgba(255,255,255,.08);color:#dcecf7;border:1px solid rgba(255,255,255,.1)}
+.refresh-button:disabled{opacity:.55;cursor:wait}
+.badge.error{color:#ffd38a;background:rgba(255,211,138,.08);border-color:rgba(255,211,138,.14)}
 
 .players-panel{padding:23px}
 .players-title{display:flex;justify-content:space-between;align-items:center}
@@ -368,6 +398,8 @@ button{font:inherit}
 .footer strong{color:#b6cada}
 
 .mobile-menu{display:none}
+.mobile-nav{display:none}
+@media(max-width:900px){.mobile-nav{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:min(100% - 42px,1240px);margin:8px auto 0;padding:10px;border:1px solid var(--line);border-radius:16px;background:rgba(9,21,34,.94);backdrop-filter:blur(20px);box-shadow:0 18px 50px rgba(4,14,24,.22)}.mobile-nav[hidden]{display:none}.mobile-nav a{padding:11px 12px;border-radius:10px;text-decoration:none;color:#d8e8f5;font-size:12px;font-weight:800}.mobile-nav a:hover{background:rgba(255,255,255,.07)}.desktop-cta{display:none}.mobile-menu{display:inline-flex;align-items:center;justify-content:center}}
 @media(max-width:900px){
   .hero-grid,.dashboard{grid-template-columns:1fr}
   .hero{min-height:auto;padding-top:50px}
@@ -407,8 +439,9 @@ button{font:inherit}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-<div class="nav">
+<div class="nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a class="brand" href="#top" aria-label="Realm SMP: Reborn home">
       <div class="brand-mark"><img src="realm_logo.png" alt=""></div>
@@ -417,18 +450,22 @@ button{font:inherit}
         <div class="brand-sub">Minecraft Survival Server</div>
       </div>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Main menu">
       <a href="#server">Server</a>
       <a href="#features">Features</a>
       <a href="#discord">Discord</a>
       <a href="#team">Team</a>
       <a href="#join">Join</a>
-    </div>
-    <a class="nav-cta" href="https://discord.com/invite/N5th8ZNMeS" target="_blank" rel="noopener">Join Discord ↗</a>
+    </nav>
+    <button class="nav-cta mobile-menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    <a class="nav-cta desktop-cta" href="https://discord.com/invite/N5th8ZNMeS" target="_blank" rel="noopener">Join Discord ↗</a>
+  </div>
+  <div id="mobile-nav" class="mobile-nav" hidden>
+    <a href="#server">Server</a><a href="#features">Features</a><a href="#discord">Discord</a><a href="#team">Team</a><a href="#join">Join</a>
   </div>
 </div>
 
-<main id="top">
+<main id="main-content" tabindex="-1">
   <div class="page announcement">
     <span><strong>Realm SMP: Reborn</strong> A community-built Minecraft server for the next chapter.</span>
     <a href="#join">GET CONNECTED →</a>
@@ -436,7 +473,7 @@ button{font:inherit}
   <section class="hero">
     <div class="page hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow"><span id="heartbeat" class="heartbeat"></span><span id="hero-status">CHECKING SERVER</span></div>
+        <div class="eyebrow" role="status" aria-live="polite"><span id="heartbeat" class="heartbeat"></span><span id="hero-status">CHECKING SERVER</span></div>
         <h1>Your next world is <span>already here.</span></h1>
         <p>Realm SMP is a shared survival world for the builders, explorers, and friends who make every session worth coming back to.</p>
         <div class="hero-actions">
@@ -501,7 +538,7 @@ button{font:inherit}
               <div class="server-name">Realm SMP: Reborn</div>
               <div class="server-address">play.realmsmp.org · Java + Bedrock</div>
             </div>
-            <div id="status-badge" class="badge"><span id="badge-dot" class="heartbeat"></span><span>CHECKING</span></div>
+            <div id="status-badge" class="badge" role="status" aria-live="polite"><span id="badge-dot" class="heartbeat"></span><span>CHECKING</span></div>
           </div>
 
           <div class="stats-grid">
@@ -522,7 +559,10 @@ button{font:inherit}
             </div>
           </div>
 
-          <div id="updated" class="updated">Waiting for first server check...</div>
+          <div class="status-actions">
+            <div id="updated" class="updated">Waiting for first server check...</div>
+            <button class="copy-button refresh-button" type="button" onclick="loadServer(true)">REFRESH STATUS</button>
+          </div>
         </div>
 
         <div class="panel players-panel">
@@ -681,18 +721,20 @@ const API = "https://api.mcstatus.io/v2/status/java/" + encodeURIComponent(ADDRE
 
 const el = id => document.getElementById(id);
 
-function setBadge(online){
+function setBadge(state){
   const badge = el("status-badge");
   const dot = el("badge-dot");
   const heroDot = el("heartbeat");
   const heroStatus = el("hero-status");
 
-  badge.className = "badge " + (online ? "online" : "offline");
+  const online = state === "online";
+  const error = state === "error";
+  badge.className = "badge " + (online ? "online" : error ? "error" : "offline");
   dot.className = "heartbeat " + (online ? "live" : "");
-  badge.lastElementChild.textContent = online ? "ONLINE" : "OFFLINE";
+  badge.lastElementChild.textContent = online ? "ONLINE" : error ? "STATUS UNKNOWN" : "OFFLINE";
 
   heroDot.className = "heartbeat " + (online ? "live" : "");
-  heroStatus.textContent = online ? "SERVER ONLINE" : "SERVER OFFLINE";
+  heroStatus.textContent = online ? "SERVER ONLINE" : error ? "STATUS CHECK FAILED" : "SERVER OFFLINE";
 }
 
 function safeText(value){
@@ -701,13 +743,18 @@ function safeText(value){
   }[ch]));
 }
 
-async function loadServer(){
+async function loadServer(manual = false){
+  const refresh = document.querySelector(".refresh-button");
+  if(refresh) refresh.disabled = true;
   try{
-    const res = await fetch(API + "?query=true&timeout=5", {cache:"no-store"});
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 7000);
+    const res = await fetch(API + "?query=true&timeout=5", {cache:"no-store",signal:controller.signal});
+    clearTimeout(timeout);
     if(!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
 
-    setBadge(Boolean(data.online));
+    setBadge(data.online ? "online" : "offline");
 
     if(!data.online){
       el("players").textContent = "0";
@@ -748,13 +795,15 @@ async function loadServer(){
 
     el("updated").textContent = "Last checked " + new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
   }catch(err){
-    setBadge(false);
+    setBadge("error");
     el("players").textContent = "--";
     el("max-players").textContent = "--";
     el("version").textContent = "Unavailable";
     el("player-count-label").textContent = "--";
     el("player-list").innerHTML = '<div class="empty">The live status service could not be reached. The server itself may still be online.</div>';
     el("updated").textContent = "Status check failed at " + new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
+  }finally{
+    if(refresh) refresh.disabled = false;
   }
 }
 
@@ -777,7 +826,25 @@ document.querySelectorAll(".head-button").forEach(btn => {
 });
 
 loadServer();
-setInterval(loadServer, 30000);
+setInterval(() => loadServer(false), 30000);
+
+document.querySelector(".mobile-menu")?.addEventListener("click", () => {
+  const button = document.querySelector(".mobile-menu");
+  const menu = document.getElementById("mobile-nav");
+  const open = button.getAttribute("aria-expanded") === "true";
+  button.setAttribute("aria-expanded", String(!open));
+  button.textContent = open ? "Menu" : "Close";
+  menu.hidden = open;
+});
+document.querySelectorAll("#mobile-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    const button = document.querySelector(".mobile-menu");
+    const menu = document.getElementById("mobile-nav");
+    button.setAttribute("aria-expanded","false");
+    button.textContent = "Menu";
+    menu.hidden = true;
+  });
+});
 </script>
 </body>
 </html>
